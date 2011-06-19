@@ -1,0 +1,8 @@
+CONFIG FILES
+============
+Generic config files placed in ~
+
+CONTENTS
+========
+- .vimrc and .vim folder with snapshot of plugins
+- .bashrc for a nice bash experience
