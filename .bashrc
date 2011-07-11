@@ -34,7 +34,7 @@ alias lsx='ls -ax'                # sort right to left rather then in columns
 alias lss='ls -shaxSr'            # sort by size
 alias lt='ls -latr'               # sort by date
 alias lm='ls -al |more'           # pipe through 'more'
-alias tilde='cd ~'                # go home
+alias home='cd ~'                # go home
 
 alias df='df -h'
 
