@@ -8,7 +8,6 @@
 export LANG=de_DE.UTF-8
 #export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\] $"
 
-export EMAIL="Otto Hockel <hockel.otto@googlemail.com>"
 export EDITOR=vim
 
 export PYTHON24=/usr/bin/python2.4
