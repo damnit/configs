@@ -40,4 +40,4 @@ alias df='df -h'
 # Awesome oneliner 
 # green if exit status 0, red if exit status 1
 # shows the python virtualenv you are working on like [2.7]
-export PROMPT_COMMAND='PS1="\`if [ \$? = 0 ]; then echo "\\[\\e[95m\\]"; else echo "\\[\\e[93m\\]"; fi\`\`echo ${VIRTUAL_ENV:+[${VIRTUAL_ENV##*/}]}\`[\u@\h: \`if [[ `pwd|wc -c|tr -d " "` > 30 ]]; then echo "\\W"; else echo "\\w"; fi\`]\$\[\033[0m\] "; echo -ne "\033]0;`hostname -s`:`pwd`\007"'
+export PROMPT_COMMAND='PS1="\`if [ \$? = 0 ]; then echo "\\033[1m\\\033[95m\\]"; else echo "\\[\\e[93m\\]"; fi\`\`echo ${VIRTUAL_ENV:+[${VIRTUAL_ENV##*/}]}\`[\u@\h: \`if [[ `pwd|wc -c|tr -d " "` > 30 ]]; then echo "\\W"; else echo "\\w"; fi\`]\$\[\033[0m\] "; echo -ne "\033]0;`hostname -s`:`pwd`\007"'
