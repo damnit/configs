@@ -34,7 +34,7 @@ set visualbell			" and don't beep
 set autoread			" read changed files
 set incsearch			" jump to searchterm
 set numberwidth=1		" width for numbers
-set wrap			" no line wrapping
+set wrap			    " no line wrapping
 set showtabline=2		" always show tab bar
 set scrolloff=3			" keep more content
 set wildmenu			" tab completion for files/buffers act like bash
@@ -44,6 +44,7 @@ set ignorecase 			" case sensitive search
 set smartcase			" only case sensitive if upper characters
 set mousehide			" hide mouse pointer while typing
 set nobackup			" shit wreck swap files
+set noswapfile          " shit wreck swap files
 "set lcs=trail: ,extends:>,precedes:<,tab:
 "set magic			" regular expression magic
 
@@ -133,7 +134,7 @@ if has("autocmd") && !exists("autocommands_loaded")
   autocmd FileType CHANGELOG set ts=4 sw=4 expandtab
   autocmd FileType cfg set ts=4 sw=4 expandtab
   autocmd FileType python set omnifunc=pythoncomplete#Complete
-  autocmd FileType python compiler pylint
+  " autocmd FileType python compiler pylint
 
   " add cusstom commentstring for nginx
   autocmd FileType nginx let &l:commentstring='#%s'
