@@ -148,6 +148,7 @@ if has("autocmd") && !exists("autocommands_loaded")
   autocmd BufNewFile,BufRead *.cfg setfiletype cfg
   autocmd BufNewFile,BufRead error.log setfiletype apachelogs
   autocmd BufNewFile,BufRead access.log setfiletype apachelogs
+  autocmd BufNewFile,BufRead *.scala setfiletype scala
 
   " abbrevations
   autocmd FileType python abbr kpdb import pdb; pdb.set_trace()
