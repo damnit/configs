@@ -68,6 +68,9 @@ nmap <f5> :bp <cr>
 " next buffer
 nmap <f6> :bn <cr>
 
+" open new tab :)
+map <C-T> :tabnew<CR>
+
 " move in split windows with ctrl key
 nmap <C-Up> <Up>
 nmap <C-Down> <Down>
