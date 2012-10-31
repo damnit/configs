@@ -52,6 +52,8 @@ set noswapfile          " shit wreck swap files
 " Keyboard mappings
 " =================
 
+map <C-T> :tabnew<CR>
+
 " open a terminal buffer (ConqueTerm Plugin)
 " http://code.google.com/p/conque/
 noremap <f1> :ConqueTermSplit bash <cr>
@@ -68,9 +70,6 @@ nmap <f5> :bp <cr>
 " next buffer
 nmap <f6> :bn <cr>
 
-" open new tab :)
-map <C-T> :tabnew<CR>
-
 " move in split windows with ctrl key
 nmap <C-Up> <Up>
 nmap <C-Down> <Down>
@@ -83,6 +82,9 @@ nmap <C-Left> <Left>
 " highligths all from import statements
 com! FindLastImport :execute'normal G<cr>' | :execute':normal ?^\(from\|import\)\><cr>'
 map <leader>fi :FindLastImport<cr>
+
+" binding for tagbar
+nmap <F12> :TagbarToggle<CR>
 
 " ==============
 " Plugin configs

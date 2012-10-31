@@ -16,5 +16,6 @@ git clone https://github.com/vim-scripts/The-NERD-Commenter.git
 git clone https://github.com/vim-scripts/pythoncomplete.git
 git clone https://github.com/scrooloose/syntastic.git
 git clone https://github.com/tpope/vim-markdown.git
+git clone https://github.com/majutsushi/tagbar.git
 svn checkout http://conque.googlecode.com/svn/trunk conque-term
 echo "done :)"
