@@ -45,6 +45,7 @@ set smartcase			" only case sensitive if upper characters
 set mousehide			" hide mouse pointer while typing
 set nobackup			" shit wreck swap files
 set noswapfile          " shit wreck swap files
+set textwidth=80        " auto set tw=80
 "set lcs=trail: ,extends:>,precedes:<,tab:
 "set magic			" regular expression magic
 
@@ -95,7 +96,7 @@ map <silent><c-tab> :NERDTreeToggle <cr>
 nnoremap <silent> <c-f> :call FindInNERTTree() <cr>
 let g:NERDTreeMapActivateNode="<cr>"
 let g:NERDTreeMapOpenSplit="<s-cr>"
-let g:NERDTreeIgnore=['\.pyc$', '\.pyo$', '\~$']
+let g:NERDTreeIgnore=['\.pyc$', '\.pyo$', '\~$', '\.aux$', '\.toc$', '\.lof$', '\.idx$']
 let g:NERDTreeChDirMode=2
 
 " supertab plugin
@@ -126,8 +127,8 @@ if has("autocmd") && !exists("autocommands_loaded")
   " Remove all autocommands for the current group  
   " autocmd!
 
-  " Textwidth 78 characters :-)
-  autocmd FileType text setlocal textwidth=78
+  " Textwidth 80 characters :-)
+  autocmd FileType text setlocal textwidth=80
 
   " jump to the last cursor position
   autocmd BufReadPost *
@@ -158,11 +159,13 @@ if has("autocmd") && !exists("autocommands_loaded")
   " abbrevations
   autocmd FileType python abbr kpdb import pdb; pdb.set_trace()
   autocmd FileType python abbr kipdb from ipdb import set_trace; set_trace()
+  autocmd FileType python abbr iemb from IPython import embed; embed()
 
   " VIM footers
   autocmd FileType css abbr kvim /* vim: set ft=css ts=4 sw=4 expandtab : */
   autocmd FileType javscript abbr kvim /* vim: set ft=javscript ts=4 sw=4 expandtab : */
-  autocmd FileType rst abbr kvim .. vim: set ft=rst ts=4 sw=4 expandtab tw=78 :
+  autocmd FileType rst abbr kvim .. vim: set ft=rst ts=4 sw=4 expandtab tw=80 :
+  autocmd FileType moin abbr kvim .. vim: set ft=moin ts=2 sw=4 expandtab tw=80 :
   autocmd FileType python abbr kvim # vim: set ft=python ts=4 sw=4 expandtab :
   autocmd FileType xml abbr kvim <!-- vim: set ft=xml ts=2 sw=2 expandtab : -->
   autocmd FileType html abbr kvim <!-- vim: set ft=html ts=2 sw=2 expandtab : -->
