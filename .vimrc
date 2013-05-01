@@ -113,6 +113,16 @@ let g:pylint_onwrite=0
 let g:pylint_cwindow=1
 let g:pylint_show_rate=1
 
+" control-p
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll|pyc|pyo)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
 " ============
 " Autocommands
 " ============
