@@ -16,12 +16,15 @@ alias ls='ls -G --color=auto'
 alias la="ls -la --color=auto"
 alias ll="ls -lah --color=auto"
 alias l="ls -lah --color=auto"
+alias doch='su -c "$(history -p !-1)"'
 
 export PYTHON25=/usr/local/bin/python2.5
 export PYTHON26=/usr/local/bin/python2.6
 export PYTHON27=/usr/bin/python
 
 export GIT_SSL_NO_VERIFY=true
+
+export JAVA_HOME="/usr/java/latest"
 
 #Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
