@@ -28,6 +28,7 @@ set nolist		    	" please don't show white spaces characters and tabs
 " VIM SPECIFIC
 " ============
 syntax on
+colorscheme delek
 set expandtab 			" expands tabs to spaces
 set softtabstop=4 		" 4 spaces for tabs
 set visualbell			" and don't beep
@@ -114,6 +115,7 @@ let g:pylint_cwindow=1
 let g:pylint_show_rate=1
 
 " control-p
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
