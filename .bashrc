@@ -17,6 +17,7 @@ alias la="ls -la --color=auto"
 alias ll="ls -lah --color=auto"
 alias l="ls -lah --color=auto"
 alias doch='su -c "$(history -p !-1)"'
+alias fuck_ds_store='find . -name .DS_Store -exec rm {} \; && find . -name ._.DS_Store -exec rm {} \;'
 
 export PYTHON25=/usr/local/bin/python2.5
 export PYTHON26=/usr/local/bin/python2.6
@@ -36,3 +37,4 @@ source /usr/bin/virtualenvwrapper.sh
 export PROMPT_COMMAND='PS1="\`if [ \$? = 0 ]; then echo "\\[\\e[95m\\]"; else echo "\\[\\e[93m\\]"; fi\`\`echo ${VIRTUAL_ENV:+[${VIRTUAL_ENV##*/}]}\`[\u@\h: \`if [[ `pwd|wc -c|tr -d " "` > 30 ]]; then echo "\\W"; else echo "\\w"; fi\`]\$\[\033[0m\] "; echo -ne "\033]0;`hostname -s`:`pwd`\007"'
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:/tmp/svnversion # Add RVM to PATH for scripting

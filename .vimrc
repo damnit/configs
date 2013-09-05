@@ -1,6 +1,10 @@
-" =====
-" VIMRC
-" =====
+ "_______  _______  _______  _______  __   _______          __   __  ___   __   __  ______    _______ 
+"|       ||       ||       ||       ||  | |       |        |  | |  ||   | |  |_|  ||    _ |  |       |
+"|   _   ||___    ||___    ||   _   ||__| |  _____|        |  |_|  ||   | |       ||   | ||  |       |
+"|  | |  |    |   |    |   ||  | |  |     | |_____         |       ||   | |       ||   |_||_ |       |
+"|  |_|  |    |   |    |   ||  |_|  |     |_____  |   ___  |       ||   | |       ||    __  ||      _|
+"|       |    |   |    |   ||       |      _____| |  |   |  |     | |   | | ||_|| ||   |  | ||     |_ 
+"|_______|    |___|    |___||_______|     |_______|  |___|   |___|  |___| |_|   |_||___|  |_||_______|
 
 " Use Vim settings, rather than Vi settings.
 " This must be first because it changes other options
@@ -28,7 +32,7 @@ set nolist		    	" please don't show white spaces characters and tabs
 " VIM SPECIFIC
 " ============
 syntax on
-colorscheme delek
+colorscheme desert
 set expandtab 			" expands tabs to spaces
 set softtabstop=4 		" 4 spaces for tabs
 set visualbell			" and don't beep
