@@ -39,7 +39,7 @@ set visualbell			" and don't beep
 set autoread			" read changed files
 set incsearch			" jump to searchterm
 set numberwidth=1		" width for numbers
-set wrap			    " no line wrapping
+set nowrap			    " no line wrapping
 set showtabline=2		" always show tab bar
 set scrolloff=3			" keep more content
 set wildmenu			" tab completion for files/buffers act like bash
@@ -50,7 +50,7 @@ set smartcase			" only case sensitive if upper characters
 set mousehide			" hide mouse pointer while typing
 set nobackup			" shit wreck swap files
 set noswapfile          " shit wreck swap files
-set textwidth=80        " auto set tw=80
+"set textwidth=80        " auto set tw=80
 "set lcs=trail: ,extends:>,precedes:<,tab:
 "set magic			" regular expression magic
 
@@ -129,6 +129,16 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
+" ========
+" GUI Font
+" ========
+
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Terminus\ 9
+  endif
+endif
+
 " ============
 " Autocommands
 " ============
@@ -195,6 +205,7 @@ if has("autocmd") && !exists("autocommands_loaded")
   autocmd FileType zpt abbr kmod :r ~/.vim/skeletons/skeleton.pt
   autocmd FileType changelog abbr kmod :r ~/.vim/skeletons/skeleton.changelog
   autocmd FileType xml abbr kmod :r ~/.vim/skeletons/skeleton.zcml
+  autocmd FileType markdown abbr kmod :r ~/.vim/skeletons/skeleton.md
 
   augroup END
 endif
