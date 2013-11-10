@@ -19,5 +19,6 @@ git clone https://github.com/tpope/vim-markdown.git
 git clone https://github.com/majutsushi/tagbar.git
 git clone https://github.com/kien/ctrlp.vim.git
 git clone https://github.com/groenewege/vim-less.git
+git clone https://github.com/klen/python-mode.git
 svn checkout http://conque.googlecode.com/svn/trunk conque-term
 echo "done :)"

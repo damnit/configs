@@ -25,15 +25,17 @@ export PYTHON27=/usr/bin/python
 
 export GIT_SSL_NO_VERIFY=true
 
-export JAVA_HOME="/usr/java/latest"
+export JAVA_HOME="/opt/java/bin"
 
 #Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
+source git-completion.bash
 
 # Awesome oneliner 
 # some nice color if exit status 0, yellow if exit status 1
 # shows the python virtualenv you are working on like [2.7]
 export PROMPT_COMMAND='PS1="\`if [ \$? = 0 ]; then echo "\\[\\e[95m\\]"; else echo "\\[\\e[93m\\]"; fi\`\`echo ${VIRTUAL_ENV:+[${VIRTUAL_ENV##*/}]}\`[\u@\h: \`if [[ `pwd|wc -c|tr -d " "` > 30 ]]; then echo "\\W"; else echo "\\w"; fi\`]\$\[\033[0m\] "; echo -ne "\033]0;`hostname -s`:`pwd`\007"'
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:/opt/java/bin # java path
+PATH=$PATH:/home/otto/.cabal/bin # haskell path

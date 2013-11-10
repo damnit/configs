@@ -16,6 +16,7 @@ let maplocalleader=","
 
 " Load Pathogen # all plugins out of .vim/autoload
 call pathogen#infect()
+call pathogen#helptags()
 filetype plugin indent on
 
 " =============
@@ -135,7 +136,8 @@ let g:ctrlp_custom_ignore = {
 
 if has("gui_running")
   if has("gui_gtk2")
-    set guifont=Terminus\ 9
+    "set guifont=Lat2-Terminus16\ 9
+    set guifont=Monospace\ 9
   endif
 endif
 
