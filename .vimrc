@@ -17,6 +17,7 @@ let maplocalleader=","
 
 " Load Pathogen # all plugins out of .vim/autoload
 call pathogen#infect()
+
 call pathogen#helptags()
 filetype plugin indent on
 
