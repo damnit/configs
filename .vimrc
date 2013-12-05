@@ -8,6 +8,7 @@
 
 " Use Vim settings, rather than Vi settings.
 " This must be first because it changes other options
+set clipboard=unnamedplus
 set nocompatible
 
 " Use comma instead of backslash
@@ -136,8 +137,7 @@ let g:ctrlp_custom_ignore = {
 
 if has("gui_running")
   if has("gui_gtk2")
-    "set guifont=Lat2-Terminus16\ 9
-    set guifont=Monospace\ 9
+    set guifont=Terminus\ 11
   endif
 endif
 
