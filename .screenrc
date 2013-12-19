@@ -1,0 +1,3 @@
+caption always "%{= wk} %-w%{= KW} [%n %t] %{-}%+w %= | @%H | %l | %Y-%m-%d %c "
+  bindkey -k F1 prev
+  bindkey -k F2 next
