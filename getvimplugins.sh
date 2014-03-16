@@ -1,7 +1,5 @@
 #!/bin/bash
-mkdir -p ~/.vim/autoload 
-mkdir -p ~/.vim/bundle;
-cd ~/.vim/autoload
+mkdir -p ~/.vim/{autoload,bundle} && cd ~/.vim/autoload
 echo "getting pathogen"
 wget https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 cd ~/.vim/bundle/
@@ -20,5 +18,4 @@ git clone https://github.com/majutsushi/tagbar.git
 git clone https://github.com/kien/ctrlp.vim.git
 git clone https://github.com/groenewege/vim-less.git
 git clone https://github.com/klen/python-mode.git
-svn checkout http://conque.googlecode.com/svn/trunk conque-term
 echo "done :)"
