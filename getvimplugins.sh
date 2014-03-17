@@ -4,7 +4,7 @@ echo "getting pathogen"
 wget https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 cd ~/.vim/bundle/
 echo "installing plugins..."
-git clone https://github.com/Lokaltog/vim-powerline.git
+git clone https://github.com/bling/vim-airline.git
 git clone https://github.com/scrooloose/nerdtree.git
 git clone https://github.com/vim-scripts/ctags.vim.git
 git clone https://github.com/ervandew/supertab.git
