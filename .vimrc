@@ -6,7 +6,6 @@
 "
 " Use Vim settings, rather than Vi settings.
 " This must be first because it changes other options
-set clipboard=unnamedplus
 set nocompatible
 
 " Use comma instead of backslash
@@ -15,7 +14,6 @@ let maplocalleader=","
 
 " Load Pathogen # all plugins out of .vim/autoload
 call pathogen#infect()
-
 call pathogen#helptags()
 filetype plugin indent on
 
@@ -104,6 +102,7 @@ let g:NERDTreeMapActivateNode="<cr>"
 let g:NERDTreeMapOpenSplit="<s-cr>"
 let g:NERDTreeIgnore=['\.pyc$', '\.pyo$', '\~$', '\.aux$', '\.toc$', '\.lof$', '\.idx$']
 let g:NERDTreeChDirMode=2
+let g:NERDTreeDirArrows=0
 
 " supertab plugin
 " https://github.com/ervandew/supertab
@@ -136,7 +135,9 @@ let g:ctrlp_custom_ignore = {
 
 if has("gui_running")
   if has("gui_gtk2")
-    set guifont=Terminus\ 11
+    "set guifont=Lat2-Terminus16\ 9
+    "set guifont=Monospace\ 9
+    set guifont=Inconsolata\ 10
   endif
 endif
 
@@ -162,7 +163,7 @@ if has("autocmd") && !exists("autocommands_loaded")
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
-  autocmd FileType javascript set ts=4 sw=4
+  "autocmd FileType javascript set ts=4 sw=4
   autocmd FileType html set ts=2 sw=2 expandtab
   autocmd FileType CHANGELOG set ts=4 sw=4 expandtab
   autocmd FileType cfg set ts=4 sw=4 expandtab
@@ -190,7 +191,7 @@ if has("autocmd") && !exists("autocommands_loaded")
 
   " VIM footers
   autocmd FileType css abbr kvim /* vim: set ft=css ts=4 sw=4 expandtab : */
-  autocmd FileType javscript abbr kvim /* vim: set ft=javscript ts=4 sw=4 expandtab : */
+  autocmd FileType javascript abbr kvim /* vim: set ft=javascript ts=4 sw=4 expandtab : */
   autocmd FileType rst abbr kvim .. vim: set ft=rst ts=4 sw=4 expandtab tw=80 :
   autocmd FileType moin abbr kvim .. vim: set ft=moin ts=2 sw=4 expandtab tw=80 :
   autocmd FileType python abbr kvim # vim: set ft=python ts=4 sw=4 expandtab :
@@ -202,6 +203,7 @@ if has("autocmd") && !exists("autocommands_loaded")
 
   " load Templates with kmod
   autocmd FileType python abbr kmod :r ~/.vim/skeletons/skeleton.py
+  autocmd FileType javascript abbr kmod :r ~/.vim/skeletons/skeleton.js
   autocmd FileType rst abbr kmod :r ~/.vim/skeletons/skeleton.rst
   autocmd FileType zpt abbr kmod :r ~/.vim/skeletons/skeleton.pt
   autocmd FileType changelog abbr kmod :r ~/.vim/skeletons/skeleton.changelog
