@@ -141,6 +141,9 @@ if has("gui_running")
   endif
 endif
 
+" CUSTOM COMMANDS
+:command Pjson %!python -m json.tool
+
 " ============
 " Autocommands
 " ============
