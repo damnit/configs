@@ -8,12 +8,17 @@ Generic config files placed in **~**
 
 ## CHANGES ##
 
-### 2013-11-10 ###
+### 2014-11-03
+* added **.dir_colors**
+* updated and cleaned .vimrc and plugins
+* added **Makefile** for building and updating DOTVIM stuff
+
+### 2013-11-10
 * initial setup.sh
 * added .gitignore
 * .vimrc in gui - change font
 * added python-mode in getvimplugins.sh
 
-### 2011-07-11 ###
+### 2011-07-11
 * Some awesome colors added in .bashrc prompt
 * Showing the py virtualenv you are working in
