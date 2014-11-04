@@ -1,0 +1,15 @@
+https://github.com/vim-scripts/ctags.vim.git
+https://github.com/kien/ctrlp.vim.git
+https://github.com/scrooloose/nerdtree.git
+https://github.com/klen/python-mode.git
+https://github.com/vim-scripts/pythoncomplete.git
+https://github.com/msanders/snipmate.vim.git
+https://github.com/ervandew/supertab.git
+https://github.com/scrooloose/syntastic.git
+https://github.com/majutsushi/tagbar.git
+https://github.com/vim-scripts/The-NERD-Commenter.git
+https://github.com/bling/vim-airline.git
+https://github.com/jezcope/vim-align.git
+https://github.com/groenewege/vim-less.git
+https://github.com/tpope/vim-markdown.git
+https://github.com/tpope/vim-surround.git

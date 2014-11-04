@@ -8,10 +8,11 @@ Generic config files placed in **~**
 
 ## CHANGES ##
 
-### 2014-11-03
+### 2014-11-04
 * added **.dir_colors**
 * updated and cleaned .vimrc and plugins
 * added **Makefile** for building and updating DOTVIM stuff
+* reading vim plugins from text file in **Makefile**
 
 ### 2013-11-10
 * initial setup.sh
