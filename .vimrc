@@ -163,6 +163,7 @@ if has("autocmd") && !exists("autocommands_loaded")
   autocmd BufNewFile *.py 0r ~/.vim/skeletons/skeleton.py
   autocmd BufNewFile *.md 0r ~/.vim/skeletons/skeleton.md
   autocmd BufNewFile *.js 0r ~/.vim/skeletons/skeleton.js
+  autocmd BufNewFile *.html 0r ~/.vim/skeletons/skeleton.html
 
   " abbrevations
   autocmd FileType python abbr kpdb import pdb; pdb.set_trace()
