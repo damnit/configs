@@ -158,6 +158,7 @@ if has("autocmd") && !exists("autocommands_loaded")
 
   autocmd BufNewFile,BufRead error.log setfiletype apachelogs
   autocmd BufNewFile,BufRead access.log setfiletype apachelogs
+  autocmd BufNewFile,BufRead *.moin setfiletype tracwiki
 
   "vim to load default skeletons on open
   autocmd BufNewFile *.py 0r ~/.vim/skeletons/skeleton.py

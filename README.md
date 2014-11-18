@@ -8,6 +8,11 @@ Generic config files placed in **~**
 
 ## CHANGES ##
 
+### 2014-11-18
+* added tracwiki to vimplugins, in vimrc
+* issued some git clone magic where some files and folders are cloned into
+  configs folder locally
+
 ### 2014-11-04
 * added **.dir_colors**
 * updated and cleaned .vimrc and plugins
