@@ -25,6 +25,7 @@
 ###################
 *.egg-info
 .installed.cfg
+.ropeproject
 
 # TEX output docs #
 ###################
