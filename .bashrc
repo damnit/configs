@@ -33,6 +33,7 @@ export EDITOR=vim
 export PYTHON25=/usr/local/bin/python2.5
 export PYTHON26=/usr/local/bin/python2.6
 export PYTHON27=/usr/bin/python
+export PYTHONDONTWRITEBYTECODE=1
 
 export GIT_SSL_NO_VERIFY=true
 
