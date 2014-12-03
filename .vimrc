@@ -110,6 +110,10 @@ let g:SuperTabDefaultCompletionType="<c-x><c-p>"
 let python_highlight_all=1
 let python_slow_sync=1
 
+" syntastic html tidy
+let g:syntastic_html_tidy_exec='/usr/bin/tidy'
+let g:syntastic_html_tidy_ignore_errors=['<input> proprietary attribute "role"']
+
 " pylint plugin
 let g:pylint_onwrite=0
 let g:pylint_cwindow=1
