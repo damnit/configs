@@ -27,6 +27,7 @@ alias l="ls -lah --color=auto"
 alias doch='su -c "$(history -p !-1)"'
 alias fuck_ds_store='find . -name .DS_Store -exec rm {} \; && find . -name ._.DS_Store -exec rm {} \;'
 alias fuck_pyc='find . -name "*.pyc" -exec rm {} \;'
+alias htmltidy='tidy -mi -xml -wrap 0'
 
 export EDITOR=vim
 
@@ -47,6 +48,6 @@ source /opt/scripts/git-completion.bash
 # Awesome oneliner 
 # some nice color if exit status 0, yellow if exit status 1
 # shows the python virtualenv you are working on like [2.7]
-export PROMPT_COMMAND='PS1="\`if [ \$? = 0 ]; then echo "\\[\\e[95m\\]"; else echo "\\[\\e[93m\\]"; fi\`\`echo ${VIRTUAL_ENV:+[${VIRTUAL_ENV##*/}]}\`[\u@\h: \`if [[ `pwd|wc -c|tr -d " "` > 30 ]]; then echo "\\W"; else echo "\\w"; fi\`]\$\[\033[0m\] "; echo -ne "\033]0;`hostname -s`:`pwd`\007"'
+export PROMPT_COMMAND='PS1="\`if [ \$? = 0 ]; then echo "\\[\\e[94m\\]"; else echo "\\[\\e[31m\\]"; fi\`\`echo ${VIRTUAL_ENV:+[${VIRTUAL_ENV##*/}]}\`[\u@\h:\`if [[ `pwd|wc -c|tr -d " "` > 30 ]]; then echo "\\W"; else echo "\\w";fi\`]\$\[\033[0m\] "; echo -ne "\033]0;`hostname`:`pwd`\007"'
 
 PATH=$PATH:/opt/java/bin # java path
