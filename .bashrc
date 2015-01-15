@@ -17,6 +17,13 @@ fi
 [[ $- != *i* ]] && return
 
 export LANG=de_DE.UTF-8
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+# Explicitly unset color (default anyhow). Use 1 to set it.
+export GIT_PS1_SHOWCOLORHINTS=1
+export GIT_PS1_DESCRIBE_STYLE="branch"
+export GIT_PS1_SHOWUPSTREAM="auto git"
 
 # Aliases
 alias df='df -h'
@@ -43,11 +50,12 @@ export JAVA_HOME="/opt/java"
 #Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
-source /opt/scripts/git-completion.bash
+source /usr/share/git/completion/git-completion.bash
+source /usr/share/git/completion/git-prompt.sh
 
 # Awesome oneliner 
 # some nice color if exit status 0, yellow if exit status 1
 # shows the python virtualenv you are working on like [2.7]
-export PROMPT_COMMAND='PS1="\`if [ \$? = 0 ]; then echo "\\[\\e[94m\\]"; else echo "\\[\\e[31m\\]"; fi\`\`echo ${VIRTUAL_ENV:+[${VIRTUAL_ENV##*/}]}\`[\u@\h:\`if [[ `pwd|wc -c|tr -d " "` > 30 ]]; then echo "\\W"; else echo "\\w";fi\`]\$\[\033[0m\] "; echo -ne "\033]0;`hostname`:`pwd`\007"'
+export PROMPT_COMMAND='PS1="\`if [ \$? = 0 ]; then echo "\\[\\e[94m\\]"; else echo "\\[\\e[31m\\]"; fi\`\`echo ${VIRTUAL_ENV:+[${VIRTUAL_ENV##*/}]}\`$(__git_ps1)[\u@\h:\`if [[ `pwd|wc -c|tr -d " "` > 30 ]]; then echo "\\W"; else echo "\\w";fi\`]\$\[\033[0m\] "; echo -ne "\033]0;`hostname`:`pwd`\007"'
 
 PATH=$PATH:/opt/java/bin # java path
