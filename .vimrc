@@ -35,7 +35,7 @@ set nolist		    	" please don't show white spaces characters and tabs
 " VIM SPECIFIC
 " ============
 syntax on
-colorscheme desert
+colorscheme 256-grayvim
 set expandtab 			" expands tabs to spaces
 set softtabstop=4 		" 4 spaces for tabs
 set visualbell			" and don't beep
