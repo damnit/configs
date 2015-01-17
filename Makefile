@@ -19,6 +19,7 @@ folders:
 dotfiles:
 	@echo copying dotfiles
 	@$(foreach DOTFILE, $(DOTFILES), cp $$PWD/$(DOTFILE) $$HOME;)
+	@cp $$PWD/.vim/skeletons/* $(SKELETONS)
 
 gitcompletion:
 	@echo getting bash completion for git

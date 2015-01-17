@@ -110,6 +110,10 @@ let g:SuperTabDefaultCompletionType="<c-x><c-p>"
 let python_highlight_all=1
 let python_slow_sync=1
 
+" syntastic html tidy
+let g:syntastic_html_tidy_exec='/usr/bin/tidy'
+let g:syntastic_html_tidy_ignore_errors=['<input> proprietary attribute "role"']
+
 " pylint plugin
 let g:pylint_onwrite=0
 let g:pylint_cwindow=1
@@ -158,11 +162,13 @@ if has("autocmd") && !exists("autocommands_loaded")
 
   autocmd BufNewFile,BufRead error.log setfiletype apachelogs
   autocmd BufNewFile,BufRead access.log setfiletype apachelogs
+  autocmd BufNewFile,BufRead *.moin setfiletype tracwiki
 
   "vim to load default skeletons on open
   autocmd BufNewFile *.py 0r ~/.vim/skeletons/skeleton.py
   autocmd BufNewFile *.md 0r ~/.vim/skeletons/skeleton.md
   autocmd BufNewFile *.js 0r ~/.vim/skeletons/skeleton.js
+  autocmd BufNewFile *.html 0r ~/.vim/skeletons/skeleton.html
 
   " abbrevations
   autocmd FileType python abbr kpdb import pdb; pdb.set_trace()
