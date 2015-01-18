@@ -141,7 +141,7 @@ let g:daylight_afternoon_hour = 12
 let g:daylight_evening_hour = 17
 let g:daylight_late_hour = 22
 
-" airline conf
+" airline conf requires aur/ttf-powerline-fonts-git
 set laststatus=2
 let g:airline#extensions#syntastic#enabled = 1
 
