@@ -36,23 +36,24 @@ set nolist		    	" please don't show white spaces characters and tabs
 " ============
 syntax on
 colorscheme 256-grayvim
-set expandtab 			" expands tabs to spaces
-set softtabstop=4 		" 4 spaces for tabs
-set visualbell			" and don't beep
-set autoread			" read changed files
-set incsearch			" jump to searchterm
-set numberwidth=1		" width for numbers
-set nowrap			    " no line wrapping
-set showtabline=2		" always show tab bar
-set scrolloff=3			" keep more content
-set wildmenu			" tab completion for files/buffers act like bash
-set wildmode=longest,list	" emacs-style tab completion when selecting
-set hlsearch 			" highlight a search term
-set ignorecase 			" case sensitive search
-set smartcase			" only case sensitive if upper characters
-set mousehide			" hide mouse pointer while typing
-set nobackup			" shit wreck swap files
-set noswapfile          " shit wreck swap files
+set expandtab             " expands tabs to spaces
+set softtabstop=4         " 4 spaces for tabs
+set colorcolumn=80        " color column 80
+set visualbell            " and don't beep
+set autoread              " read changed files
+set incsearch             " jump to searchterm
+set numberwidth=1         " width for numbers
+set nowrap                " no line wrapping
+set showtabline=2         " always show tab bar
+set scrolloff=3           " keep more content
+set wildmenu              " tab completion for files/buffers act like bash
+set wildmode=longest,list " emacs-style tab completion when selecting
+set hlsearch              " highlight a search term
+set ignorecase            " case sensitive search
+set smartcase             " only case sensitive if upper characters
+set mousehide             " hide mouse pointer while typing
+set nobackup              " shit wreck swap files
+set noswapfile            " shit wreck swap files
 set nofoldenable
 
 " =================
