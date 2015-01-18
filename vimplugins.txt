@@ -17,3 +17,5 @@ https://github.com/endel/vim-github-colorscheme.git
 https://github.com/vim-scripts/256-grayvim.git
 https://github.com/vim-scripts/tracwiki.git
 https://github.com/AndrewRadev/linediff.vim
+https://github.com/dan-f/vim-daylight.git
+https://github.com/tpope/vim-fugitive.git
