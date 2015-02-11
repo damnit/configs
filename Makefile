@@ -21,12 +21,6 @@ dotfiles:
 	@$(foreach DOTFILE, $(DOTFILES), cp $$PWD/$(DOTFILE) $$HOME;)
 	@cp $$PWD/.vim/skeletons/* $(SKELETONS)
 
-gitcompletion:
-	@echo getting bash completion for git
-	git config --global core.autocrlf input
-	wget https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -O /opt/scripts/git-completion.bash
-	chmod +x /opt/scripts/git-completion.bash
-
 pathogen:
 	@echo installing pathogen
 	wget https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim -O $(AUTOLOAD)/pathogen.vim
@@ -35,7 +29,7 @@ vimplugins: folders pathogen
 	@echo Setting up plugins in $(BUNDLE)
 	@$(foreach REPO, $(VIMPLUGS), git clone $(REPO) $(BUNDLE)/$(shell echo $(REPO) | sed 's#.*/##');)
 
-install: dotfiles gitcompletion vimplugins
+install: dotfiles vimplugins
 	@echo installation successful
 
 update: dotfiles

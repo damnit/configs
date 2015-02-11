@@ -53,9 +53,29 @@ source /usr/bin/virtualenvwrapper.sh
 source /usr/share/git/completion/git-completion.bash
 source /usr/share/git/completion/git-prompt.sh
 
-# Awesome oneliner 
-# some nice color if exit status 0, yellow if exit status 1
-# shows the python virtualenv you are working on like [2.7]
-export PROMPT_COMMAND='PS1="\`if [ \$? = 0 ]; then echo "\\[\\e[94m\\]"; else echo "\\[\\e[31m\\]"; fi\`\`echo ${VIRTUAL_ENV:+[${VIRTUAL_ENV##*/}]}\`$(__git_ps1)\[\u@\h:\`if [[ `pwd|wc -c|tr -d " "` > 30 ]]; then echo "\\W"; else echo "\\w";fi\`\]\$\[\033[0m\] "; echo -ne "\033]0;`hostname`:`pwd`\007"'
+set_prompt () {
+    LAST_CMD=$?
+    BLUE='\[\e[0;94m\]'
+    RED='\[\e[0;31m\]'
+    RESET='\[\e[00m\]'
+    if [ $LAST_CMD -eq 0 ]; then
+        PS1=$BLUE
+    else
+        PS1=$RED
+    fi
+    PS1+=${VIRTUAL_ENV:+[${VIRTUAL_ENV##*/}]}
+    PS1+=$(__git_ps1)
+    PS1+='\[\u@\h:'
+    if [ $(pwd | wc -c) -ge 31 ]; then
+        PS1+='\W'
+    else
+        PS1+='\w'
+    fi
+    PS1+='\]\$ '
+    PS1+=$RESET
+}
+PROMPT_COMMAND='set_prompt'
+#old prompt
+#export PROMPT_COMMAND='PS1="\`if [ \$? = 0 ]; then echo "\\[\\e[94m\\]"; else echo "\\[\\e[31m\\]"; fi\`\`echo ${VIRTUAL_ENV:+[${VIRTUAL_ENV##*/}]}\`$(__git_ps1)\[\u@\h:\`if [[ `pwd|wc -c|tr -d " "` > 30 ]]; then echo "\\W"; else echo "\\w";fi\`\]\$\[\033[0m\] "; echo -ne "\033]0;`hostname`:`pwd`\007"'
 
 PATH=$PATH:/opt/java/bin # java path
