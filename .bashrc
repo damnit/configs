@@ -54,18 +54,22 @@ source /usr/share/git/completion/git-completion.bash
 source /usr/share/git/completion/git-prompt.sh
 
 set_prompt () {
-    LAST_CMD=$?
-    BLUE='\[\e[0;94m\]'
-    RED='\[\e[0;31m\]'
-    RESET='\[\e[00m\]'
-    if [ $LAST_CMD -eq 0 ]; then
-        PS1=$BLUE
-    else
-        PS1=$RED
-    fi
+    local LAST_CMD=$?
+    local BLUE='$(tput setaf 4)'
+    local RED='$(tput setaf 1)'
+    local RESET='$(tput sgr0)'
+    #local RESET_C='\e[0m'
+    PS1='\033]0;$PWD\a'
+    PS1+='$(tput setaf 6)'
     PS1+=${VIRTUAL_ENV:+[${VIRTUAL_ENV##*/}]}
-    PS1+=$(__git_ps1)
-    PS1+='\[\u@\h:'
+    PS1+='$(tput setaf 3)'
+    PS1+=$(__git_ps1 [%s])
+    if [ $LAST_CMD -eq 0 ]; then
+        PS1+=$BLUE
+    else
+        PS1+=$RED
+    fi
+    PS1+=' \[\u@\h:'
     if [ $(pwd | wc -c) -ge 31 ]; then
         PS1+='\W'
     else
