@@ -13,6 +13,9 @@ then
  eval `dircolors -b $HOME/.dir_colors`
 fi
 
+# bind up and down keys
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -55,25 +58,30 @@ source /usr/share/git/completion/git-prompt.sh
 
 set_prompt () {
     local LAST_CMD=$?
-    local BLUE='$(tput setaf 4)'
-    local RED='$(tput setaf 1)'
-    local CYAN='$(tput setaf 6)'
-    local YELLOW='$(tput setaf 3)'
-    local RESET='$(tput sgr0)'
-    local TITLE='\e]0;\w\a'
-    # Terminal title
-    PS1=$TITLE
+    local RED=$(tput setaf 1)
+    local GREEN=$(tput setaf 2)
+    local YELLOW=$(tput setaf 3)
+    local BLUE=$(tput setaf 4)
+    local PURPLE=$(tput setaf 5)
+    local CYAN=$(tput setaf 6)
+    local RESET=$(tput sgr0)
+    #local TITLE="\033]0;${USER}@${HOSTNAME}: ${PWD}\007"
+    local TITLE="\[\e]0;\u@\h:\w\a\]"
+    #local TITLE="\[\033]0;\u@\h: \w\007\]"
+    PS1="$TITLE"
     # Nice cyan colored python virtualenv tag
     PS1+=$CYAN${VIRTUAL_ENV:+[${VIRTUAL_ENV##*/}]}
     # Yellow default __git_ps1
-    PS1+=$YELLOW$(__git_ps1)
+    PS1+=$YELLOW$(__git_ps1)$RESET
+    # color red if last exit code is nonzero
     [[ $LAST_CMD -eq 0 ]] && PS1+=$BLUE || PS1+=$RED
-    PS1+=' \[\u@\h:'
+    # ' user@host: '
+    PS1+=" \[\u@\h: "
+    # shorten path if its too long
     [[ $(pwd | wc -c) -ge 31 ]] && PS1+='\W' || PS1+='\w'
-    PS1+='\]\$ '$RESET
+    PS1+="\$$RESET \007"
 }
-PROMPT_COMMAND='set_prompt'
-#old prompt
-#export PROMPT_COMMAND='PS1="\`if [ \$? = 0 ]; then echo "\\[\\e[94m\\]"; else echo "\\[\\e[31m\\]"; fi\`\`echo ${VIRTUAL_ENV:+[${VIRTUAL_ENV##*/}]}\`$(__git_ps1)\[\u@\h:\`if [[ `pwd|wc -c|tr -d " "` > 30 ]]; then echo "\\W"; else echo "\\w";fi\`\]\$\[\033[0m\] "; echo -ne "\033]0;`hostname`:`pwd`\007"'
+
+export PROMPT_COMMAND='set_prompt'
 
 PATH=$PATH:/opt/java/bin # java path
