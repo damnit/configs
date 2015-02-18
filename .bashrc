@@ -57,26 +57,20 @@ set_prompt () {
     local LAST_CMD=$?
     local BLUE='$(tput setaf 4)'
     local RED='$(tput setaf 1)'
+    local CYAN='$(tput setaf 6)'
+    local YELLOW='$(tput setaf 3)'
     local RESET='$(tput sgr0)'
-    #local RESET_C='\e[0m'
-    PS1='\033]0;$PWD\a'
-    PS1+='$(tput setaf 6)'
-    PS1+=${VIRTUAL_ENV:+[${VIRTUAL_ENV##*/}]}
-    PS1+='$(tput setaf 3)'
-    PS1+=$(__git_ps1 [%s])
-    if [ $LAST_CMD -eq 0 ]; then
-        PS1+=$BLUE
-    else
-        PS1+=$RED
-    fi
+    local TITLE='\e]0;\w\a'
+    # Terminal title
+    PS1=$TITLE
+    # Nice cyan colored python virtualenv tag
+    PS1+=$CYAN${VIRTUAL_ENV:+[${VIRTUAL_ENV##*/}]}
+    # Yellow default __git_ps1
+    PS1+=$YELLOW$(__git_ps1)
+    [[ $LAST_CMD -eq 0 ]] && PS1+=$BLUE || PS1+=$RED
     PS1+=' \[\u@\h:'
-    if [ $(pwd | wc -c) -ge 31 ]; then
-        PS1+='\W'
-    else
-        PS1+='\w'
-    fi
-    PS1+='\]\$ '
-    PS1+=$RESET
+    [[ $(pwd | wc -c) -ge 31 ]] && PS1+='\W' || PS1+='\w'
+    PS1+='\]\$ '$RESET
 }
 PROMPT_COMMAND='set_prompt'
 #old prompt
