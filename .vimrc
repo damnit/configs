@@ -34,8 +34,6 @@ set nolist		    	" please don't show white spaces characters and tabs
 " ============
 " VIM SPECIFIC
 " ============
-syntax on
-colorscheme 256-grayvim
 set expandtab             " expands tabs to spaces
 set softtabstop=4         " 4 spaces for tabs
 set colorcolumn=80        " color column 80
@@ -231,3 +229,6 @@ if has("autocmd") && !exists("autocommands_loaded")
   autocmd FileType cfg abbr vfoo # vim: set ft=cfg ts=4 sw=4 expandtab :
   autocmd FileType config abbr vfoo # vim: set ft=config ts=4 sw=4 expandtab :
 endif
+
+syntax on
+colorscheme 256-grayvim
