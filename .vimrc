@@ -34,6 +34,7 @@ set nolist		    	" please don't show white spaces characters and tabs
 " ============
 " VIM SPECIFIC
 " ============
+syntax on
 set expandtab             " expands tabs to spaces
 set softtabstop=4         " 4 spaces for tabs
 set colorcolumn=80        " color column 80
@@ -135,6 +136,11 @@ let g:daylight_afternoon_color_gvim = "github"
 let g:daylight_evening_color_gvim = "industry"
 let g:daylight_late_color_gvim = "industry"
 
+let g:daylight_morning_color_term = "256-grayvim"
+let g:daylight_afternoon_color_term = "256-grayvim"
+let g:daylight_evening_color_term = "256-grayvim"
+let g:daylight_late_color_term = "256-grayvim"
+
 let g:daylight_morning_hour = 6
 let g:daylight_afternoon_hour = 12
 let g:daylight_evening_hour = 17
@@ -229,6 +235,3 @@ if has("autocmd") && !exists("autocommands_loaded")
   autocmd FileType cfg abbr vfoo # vim: set ft=cfg ts=4 sw=4 expandtab :
   autocmd FileType config abbr vfoo # vim: set ft=config ts=4 sw=4 expandtab :
 endif
-
-syntax on
-colorscheme 256-grayvim

@@ -1,0 +1,14 @@
+URxvt*background: Black
+! Font color
+URxvt*foreground: white
+!URxvt*scrollBar: false
+!URxvt*font: Monospace
+!URxvt*font: xft:Droid Sans Mono for Powerline:pixelsize=12:antialias=true:hinting=true
+!URxvt*font: xft:Inconsolata-dz for Powerline:pixelsize=13:antialias=true:hinting=true
+URxvt*font: xft:Literation Mono Powerline:pixelsize=12:antialias=true:hinting=true
+URxvt*scrollstyle: plain
+URxvt*.transparent: false
+URxvt*.shading: 110
+URxvt.perl-ext-common: default,matcher,tabbed
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
