@@ -119,6 +119,9 @@ let g:pylint_onwrite=0
 let g:pylint_cwindow=1
 let g:pylint_show_rate=1
 
+" python mode
+let g:pymode_rope = 0
+
 " control-p
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
