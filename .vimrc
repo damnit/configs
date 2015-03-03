@@ -180,6 +180,9 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
+" delimitMate
+let b:delimitMate_autoclose = 0
+
 " ===============
 " custom commands
 " ===============

@@ -63,7 +63,7 @@ set_prompt () {
     PS1+=$YELLOW$(__git_ps1)$RESET
     ## color red if last exit code is nonzero
     # ' user@host: '
-    [[ $LAST_CMD -eq 0 ]] && PS1+=$GREEN || PS1+=$RED
+    [[ $LAST_CMD -eq 0 ]] && PS1+=$CYAN || PS1+=$RED
     PS1+=' [\u@\h '
     [[ $(pwd | wc -c) -ge 31 ]] && PS1+='\W' || PS1+='\w'
     PS1+='] '$RESET

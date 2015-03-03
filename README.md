@@ -8,6 +8,11 @@ Generic config files placed in **~**
 
 ## CHANGES ##
 
+### 2015-03-03
+* reworked **PROMPT COMMAND** in .bashrc
+* added several plugins
+* added .Xdefaults, .Xmodmap
+
 ### 2014-11-18
 * added tracwiki to vimplugins, in vimrc
 * issued some git clone magic where some files and folders are cloned into
