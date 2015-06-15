@@ -5,7 +5,7 @@ SKELETONS = $$HOME/.vim/skeletons
 BUNDLES = $(shell ls $(BUNDLE))
 DATE = `date +'%Y-%m-%d'`
 VIMPLUGS = $(shell cat vimplugins.txt)
-DOTFILES = .vimrc .gvimrc .bashrc .dir_colors .screenrc .gitignore_global
+DOTFILES = .vimrc .bashrc .dir_colors .screenrc .gitignore_global
 
 .PHONY: status
 

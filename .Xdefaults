@@ -1,11 +1,21 @@
 URxvt*background: Black
 ! Font color
 URxvt*foreground: white
-URxvt*font: xft:Sauce Code Powerline Regular:pixelsize=12:antialias=true:hinting=true
-
-URxvt*scrollstyle: next
+!URxvt*font: xft:Sauce Code Powerline Regular:pixelsize=12:antialias=true:hinting=true
+!Anonymice Powerline.ttf
+!DejaVu Sans Mono for Powerline.ttf
+!DejaVu Sans Mono Oblique for Powerline.ttf
+!Literation Mono Powerline.ttf
+!Monofur for Powerline.ttf
+!Ubuntu Mono derivative Powerline.ttf
+URxvt*font: xft:Ubuntu Mono derivative Powerline:pixelsize=14:antialias=true:hinting=true
 URxvt*.transparent: false
 URxvt*.shading: 110
 URxvt.perl-ext-common: default,matcher,tabbed
 URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
+! Scrollbar
+URxvt.scrollBar:          False
+URxvt.scrollBar_right:    yes
+URxvt.scrollBar_floating: False
+URxvt.scrollstyle:        Next
