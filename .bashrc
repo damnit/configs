@@ -29,6 +29,7 @@ alias ls='ls -G --color=auto'
 alias la="ls -la --color=auto"
 alias ll="ls -lah --color=auto"
 alias l="ls -lah --color=auto"
+alias grep="grep --color=auto"
 alias doch='su -c "$(history -p !-1)"'
 alias fuck_ds_store='find . -name .DS_Store -exec rm {} \; && find . -name ._.DS_Store -exec rm {} \;'
 alias fuck_pyc='find . -name "*.pyc" -exec rm {} \;'
