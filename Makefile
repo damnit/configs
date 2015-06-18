@@ -10,16 +10,21 @@ DOTFILES = .vimrc .bashrc .dir_colors .screenrc .gitignore_global
 .PHONY: status
 
 status:
-	@echo this is a todo
+	@echo TODOS:
+	@echo - provide paths and not file names
+	@echo - fix this status target
+	@echo - fix skeleton initiation
 
 folders:
 	@echo creating dirs if not already done
 	mkdir -p $(DOTVIM)/{autoload,bundle,skeletons}
+	mkdir -p $(HOME)/.i3/
 
 dotfiles:
 	@echo copying dotfiles
 	@$(foreach DOTFILE, $(DOTFILES), cp $$PWD/$(DOTFILE) $$HOME;)
 	@cp $$PWD/.vim/skeletons/* $(SKELETONS)
+	@cp $$PWD/.i3/config $(HOME)/.i3/
 
 pathogen:
 	@echo installing pathogen
