@@ -1,12 +1,24 @@
 # CONFIG FILES #
-Generic config files placed in **~**
->> install pyflakes/pylint to make syntastic work with python :)
+Generic config files placed in **~**.
+Install pyflakes/pylint to make syntastic work with python :)
 
 ## CONTENTS ##
 - **.vimrc** and **.vim** folder with snapshot of plugins
 - **.bashrc** for a nice bash experience
+- **.Xdefaults** does some urxvt config stuff
+- **.dir_colors** showing some nice colors in bash
+- Makefile
+- some other shim
+
+## USAGE ##
+`make install` does all the installation stuff
 
 ## CHANGES ##
+
+### 2015-06-18
+* hackfixed Makefile to also copy i3 config
+* removed some ugly plugins
+* added i3 config
 
 ### 2015-03-03
 * reworked **PROMPT COMMAND** in .bashrc
