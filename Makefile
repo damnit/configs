@@ -18,13 +18,13 @@ status:
 folders:
 	@echo creating dirs if not already done
 	mkdir -p $(DOTVIM)/{autoload,bundle,skeletons}
-	mkdir -p $(HOME)/.i3/
+	mkdir -p $(HOME)/.i3
 
 dotfiles:
 	@echo copying dotfiles
 	@$(foreach DOTFILE, $(DOTFILES), cp $$PWD/$(DOTFILE) $$HOME;)
 	@cp $$PWD/.vim/skeletons/* $(SKELETONS)
-	@cp $$PWD/.i3/config $(HOME)/.i3/
+	@cp $$PWD/.i3/config $(HOME)/.i3/config
 
 pathogen:
 	@echo installing pathogen
@@ -32,7 +32,7 @@ pathogen:
 
 vimplugins: folders pathogen
 	@echo Setting up plugins in $(BUNDLE)
-	@$(foreach REPO, $(VIMPLUGS), git clone $(REPO) $(BUNDLE)/$(shell echo $(REPO) | sed 's#.*/##');)
+	@$(foreach REPO, $(VIMPLUGS), git clone $(REPO) $(BUNDLE)/$(shell echo $(REPO) | sed 's#.*/##' | sed 's/\(.*\).git/\1/');)
 
 install: dotfiles vimplugins
 	@echo installation successful
