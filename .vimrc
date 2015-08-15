@@ -190,6 +190,7 @@ let b:delimitMate_autoclose = 0
 :command Fontnormal set guifont=Monospace\ 10
 
 :command Pjson %!python -m json.tool
+:command Paste :r! xclip -o
 
 " ============
 " autocommands
