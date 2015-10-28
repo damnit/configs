@@ -34,6 +34,7 @@ alias doch='su -c "$(history -p !-1)"'
 alias fuck_ds_store='find . -name .DS_Store -exec rm {} \; && find . -name ._.DS_Store -exec rm {} \;'
 alias fuck_pyc='find . -name "*.pyc" -exec rm {} \;'
 alias htmltidy='tidy -mi -xml -wrap 0'
+alias git_checkout_changed='git status | grep geändert | cut -d ":" -f2 | xargs git checkout'
 
 export EDITOR=vim
 export PYTHONDONTWRITEBYTECODE=1
