@@ -25,7 +25,7 @@ export GIT_PS1_SHOWUPSTREAM="auto git"
 
 # Aliases
 alias df='df -h'
-alias ls='ls -G --color=auto'
+alias ls='ls -GA --color=auto'
 alias la="ls -la --color=auto"
 alias ll="ls -lah --color=auto"
 alias l="ls -lah --color=auto"

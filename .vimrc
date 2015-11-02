@@ -95,7 +95,8 @@ nmap <F12> :TagbarToggle<CR>
 
 " nerdtree plugin
 map <silent><c-tab> :NERDTreeToggle <cr>
-nnoremap <silent> <c-f> :call FindInNERTTree() <cr>
+" nnoremap <silent> <c-f> :call FindInNERDTree() <cr>
+nnoremap <silent> <c-f> :Unite buffer file_rec <cr>
 let g:NERDTreeMapActivateNode="<cr>"
 let g:NERDTreeMapOpenSplit="<s-cr>"
 let g:NERDTreeIgnore=['\.pyc$', '\.pyo$', '\~$', '\.aux$', '\.toc$', '\.lof$', '\.idx$']
