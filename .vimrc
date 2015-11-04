@@ -82,21 +82,20 @@ nmap <C-Left> <Left>
 " clear search buffer when hitting return
 :nnoremap <cr> :nohlsearch<cr>/<bs>
 
-" highligths all from import statements
-com! FindLastImport :execute'normal G<cr>' | :execute':normal ?^\(from\|import\)\><cr>'
-map <leader>fi :FindLastImport<cr>
-
-" binding for tagbar
-nmap <F12> :TagbarToggle<CR>
-
 " ==============
 " Plugin configs
 " ==============
 
+" Unite
+nnoremap <silent> <c-f> :Unite grep <cr>
+nnoremap <silent> <F12> :Unite buffer file_rec <cr>
+
+" binding for tagbar
+nmap <F11> :TagbarToggle<CR>
+
 " nerdtree plugin
 map <silent><c-tab> :NERDTreeToggle <cr>
 " nnoremap <silent> <c-f> :call FindInNERDTree() <cr>
-nnoremap <silent> <c-f> :Unite buffer file_rec <cr>
 let g:NERDTreeMapActivateNode="<cr>"
 let g:NERDTreeMapOpenSplit="<s-cr>"
 let g:NERDTreeIgnore=['\.pyc$', '\.pyo$', '\~$', '\.aux$', '\.toc$', '\.lof$', '\.idx$']
@@ -122,17 +121,6 @@ let g:pylint_show_rate=1
 
 " python mode
 let g:pymode_rope = 0
-
-" control-p
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll|pyc|pyo)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
 
 " daylight
 let g:daylight_morning_color_gvim = "monokai"
