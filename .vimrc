@@ -87,8 +87,17 @@ nmap <C-Left> <Left>
 " ==============
 
 " Unite
-nnoremap <silent> <c-f> :Unite grep <cr>
 nnoremap <silent> <F12> :Unite buffer file_rec <cr>
+
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  " Play nice with supertab
+  let b:SuperTabDisabled=1
+  " Enable navigation with control-j and control-k in insert mode
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
 
 " binding for tagbar
 nmap <F11> :TagbarToggle<CR>
