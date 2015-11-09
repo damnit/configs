@@ -87,7 +87,7 @@ nmap <C-Left> <Left>
 " ==============
 
 " Unite
-nnoremap <silent> <F12> :Unite buffer file_rec <cr>
+nnoremap <silent> <F8> :Unite buffer file_rec <cr>
 
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
@@ -100,7 +100,7 @@ function! s:unite_settings()
 endfunction
 
 " binding for tagbar
-nmap <F11> :TagbarToggle<CR>
+nmap <F7> :TagbarToggle<CR>
 
 " nerdtree plugin
 map <silent><c-tab> :NERDTreeToggle <cr>

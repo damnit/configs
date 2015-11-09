@@ -28,11 +28,14 @@ dotfiles:
 
 pathogen:
 	@echo installing pathogen
-	wget https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim -O $(AUTOLOAD)/pathogen.vim
+	@wget https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim -O $(AUTOLOAD)/pathogen.vim
 
-vimplugins: folders pathogen
+vimplugins: folders pathogen vimproc
 	@echo Setting up plugins in $(BUNDLE)
-	@$(foreach REPO, $(VIMPLUGS), git clone $(REPO) $(BUNDLE)/$(shell echo $(REPO) | sed 's#.*/##' | sed 's/\(.*\).git/\1/');)
+	@$(foreach REPO, $(VIMPLUGS), git --git-dir=$(BUNDLE)/ clone $(REPO) $(BUNDLE)/$(shell echo $(REPO) | sed 's#.*/##' | sed 's/\(.*\).git/\1/');)
+	@echo Installing vimproc
+	@git --git-dir=$(BUNDLE)/ clone https://github.com/Shougo/vimproc.vim.git $(BUNDLE)/vimproc.vim;
+	@cd $(BUNDLE)/vimproc.vim ; $(MAKE)
 
 install: dotfiles vimplugins
 	@echo installation successful
@@ -45,3 +48,4 @@ update: dotfiles
 vimbackup:
 	@echo doing a backup job on your .vim stuff
 	tar czf /tmp/$(DATE).dotvim.tar.gz $$HOME/.vimrc $(DOTVIM)
+
