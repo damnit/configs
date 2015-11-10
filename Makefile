@@ -30,7 +30,7 @@ pathogen:
 	@echo installing pathogen
 	@wget https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim -O $(AUTOLOAD)/pathogen.vim
 
-vimplugins: folders pathogen vimproc
+vimplugins: folders pathogen
 	@echo Setting up plugins in $(BUNDLE)
 	@$(foreach REPO, $(VIMPLUGS), git --git-dir=$(BUNDLE)/ clone $(REPO) $(BUNDLE)/$(shell echo $(REPO) | sed 's#.*/##' | sed 's/\(.*\).git/\1/');)
 	@echo Installing vimproc
