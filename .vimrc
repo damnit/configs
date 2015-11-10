@@ -86,6 +86,9 @@ nmap <C-Left> <Left>
 " Plugin configs
 " ==============
 
+" Autoformat
+let g:formatters_javascript = ['jscs', 'jsbeautify']
+
 " Unite
 nnoremap <silent> <F8> :Unite buffer file_rec <cr>
 
