@@ -15,10 +15,14 @@ status:
 	@echo - fix this status target
 	@echo - fix skeleton initiation
 
+clean:
+	@echo Cleaning vim plugins folder
+	@rm -rf $(BUNDLE)/*
+
 folders:
 	@echo creating dirs if not already done
 	mkdir -p $(DOTVIM)/{autoload,bundle,skeletons}
-	mkdir -p $(HOME)/.i3
+	mkdir -p $(HOME)/.i3/config
 
 dotfiles:
 	@echo copying dotfiles
@@ -30,12 +34,13 @@ pathogen:
 	@echo installing pathogen
 	@wget https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim -O $(AUTOLOAD)/pathogen.vim
 
-vimplugins: folders pathogen
+vimplugins: folders clean pathogen
 	@echo Setting up plugins in $(BUNDLE)
-	@$(foreach REPO, $(VIMPLUGS), git --git-dir=$(BUNDLE)/ clone $(REPO) $(BUNDLE)/$(shell echo $(REPO) | sed 's#.*/##' | sed 's/\(.*\).git/\1/');)
+	@$(foreach REPO, $(VIMPLUGS), cd $(BUNDLE); git clone $(REPO) $(shell echo $(REPO) | sed 's#.*/##' | sed 's/\(.*\).git/\1/');)
 	@echo Installing vimproc
 	@git --git-dir=$(BUNDLE)/ clone https://github.com/Shougo/vimproc.vim.git $(BUNDLE)/vimproc.vim;
-	@cd $(BUNDLE)/vimproc.vim ; $(MAKE)
+	@echo running compile target to build the binaries
+	@$(MAKE) compile
 
 install: dotfiles vimplugins
 	@echo installation successful
@@ -43,9 +48,14 @@ install: dotfiles vimplugins
 update: dotfiles
 	@echo updating repos copying dotfiles
 	@$(foreach PLUGIN, $(BUNDLES), echo pulling $(PLUGIN)... && git --git-dir=$(BUNDLE)/$(PLUGIN)/.git pull;)
+	@echo running compile target to build the binaries
+	@$(MAKE) compile
 	@echo update successful
 
 vimbackup:
 	@echo doing a backup job on your .vim stuff
 	tar czf /tmp/$(DATE).dotvim.tar.gz $$HOME/.vimrc $(DOTVIM)
+
+compile:
+	@cd $(BUNDLE)/vimproc.vim ; $(MAKE)
 
