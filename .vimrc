@@ -193,6 +193,16 @@ let b:delimitMate_autoclose = 0
 :command Pjson %!python -m json.tool
 :command Paste :r! xclip -o
 
+" ================
+" make gvim pretty
+" ================
+if has("gui_running")
+  :set guioptions-=m  "remove menu bar
+  :set guioptions-=T  "remove toolbar
+  :set guioptions-=r  "remove right-hand scroll bar
+  :set guioptions-=L  "remove left-hand scroll bar
+endif
+
 " ============
 " autocommands
 " ============
