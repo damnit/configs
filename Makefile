@@ -5,7 +5,7 @@ SKELETONS = $$HOME/.vim/skeletons
 BUNDLES = $(shell ls $(BUNDLE))
 DATE = `date +'%Y-%m-%d'`
 VIMPLUGS = $(shell cat vimplugins.txt)
-DOTFILES = .vimrc .bashrc .dir_colors .screenrc .gitignore_global
+DOTFILES = .vimrc .bashrc .dir_colors .tmux.conf .gitignore_global
 
 .PHONY: status
 
@@ -22,7 +22,7 @@ clean:
 folders:
 	@echo creating dirs if not already done
 	mkdir -p $(DOTVIM)/{autoload,bundle,skeletons}
-	mkdir -p $(HOME)/.i3/config
+	mkdir -p $(HOME)/.i3
 
 dotfiles:
 	@echo copying dotfiles

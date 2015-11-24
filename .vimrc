@@ -135,14 +135,14 @@ let g:pylint_show_rate=1
 let g:pymode_rope = 0
 
 " daylight
-let g:daylight_morning_color_gvim = "monokai"
+let g:daylight_morning_color_gvim = "molokai"
 let g:daylight_afternoon_color_gvim = "github"
-let g:daylight_evening_color_gvim = "monokai"
-let g:daylight_late_color_gvim = "industry"
+let g:daylight_evening_color_gvim = "molokai"
+let g:daylight_late_color_gvim = "molokai"
 
-let g:daylight_morning_color_term = "monokai"
-let g:daylight_afternoon_color_term = "256-grayvim"
-let g:daylight_evening_color_term = "monokai"
+let g:daylight_morning_color_term = "molokai"
+let g:daylight_afternoon_color_term = "molokai"
+let g:daylight_evening_color_term = "256-grayvim"
 let g:daylight_late_color_term = "256-grayvim"
 
 let g:daylight_morning_hour = 6
