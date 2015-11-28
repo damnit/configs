@@ -5,15 +5,13 @@ SKELETONS = $$HOME/.vim/skeletons
 BUNDLES = $(shell ls $(BUNDLE))
 DATE = `date +'%Y-%m-%d'`
 VIMPLUGS = $(shell cat vimplugins.txt)
-DOTFILES = .vimrc .bashrc .dir_colors .tmux.conf .gitignore_global
+DOTFILES = .vimrc .bashrc .dir_colors .tmux.conf .gitignore_global .jscsrc
 
 .PHONY: status
 
 status:
 	@echo TODOS:
-	@echo - provide paths and not file names
-	@echo - fix this status target
-	@echo - fix skeleton initiation
+	@echo - fix tmux visual line mode behaviour in docker
 
 clean:
 	@echo Cleaning vim plugins folder
@@ -22,9 +20,10 @@ clean:
 folders:
 	@echo creating dirs if not already done
 	mkdir -p $(DOTVIM)/{autoload,bundle,skeletons}
+	mkdir -p $(HOME)/.local/share/fonts
 	mkdir -p $(HOME)/.i3
 
-dotfiles:
+dotfiles: folders
 	@echo copying dotfiles
 	@$(foreach DOTFILE, $(DOTFILES), cp $$PWD/$(DOTFILE) $$HOME;)
 	@cp $$PWD/.vim/skeletons/* $(SKELETONS)
@@ -34,7 +33,7 @@ pathogen:
 	@echo installing pathogen
 	@wget https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim -O $(AUTOLOAD)/pathogen.vim
 
-vimplugins: folders clean pathogen
+vimplugins: clean pathogen
 	@echo Setting up plugins in $(BUNDLE)
 	@$(foreach REPO, $(VIMPLUGS), cd $(BUNDLE); git clone $(REPO) $(shell echo $(REPO) | sed 's#.*/##' | sed 's/\(.*\).git/\1/');)
 	@echo Installing vimproc
@@ -42,7 +41,7 @@ vimplugins: folders clean pathogen
 	@echo running compile target to build the binaries
 	@$(MAKE) compile
 
-install: dotfiles vimplugins
+install: dotfiles vimplugins fonts
 	@echo installation successful
 
 update: dotfiles
@@ -58,4 +57,20 @@ vimbackup:
 
 compile:
 	@cd $(BUNDLE)/vimproc.vim ; $(MAKE)
+
+fonts: folders
+	@git clone https://gist.github.com/9038570.git $(HOME)/.local/share/fonts/envy
+	@fc-cache
+
+dockerize:
+	@echo building the container
+	@echo getting latest pacman mirrorlist
+	@wget -O mirrorlist "https://www.archlinux.org/mirrorlist/?country=DE&protocol=http&ip_version=4"
+	@sed -i 's/^#Server/Server/' mirrorlist
+	@docker build -t workspace .
+
+run:
+	xhost +
+	docker run --rm -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$$DISPLAY -v $(HOME):$(HOME) --name=workspace workspace /usr/bin/terminator
+	xhost -
 

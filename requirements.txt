@@ -1,0 +1,11 @@
+flake8
+mccabe
+packaging
+pep8
+pyflakes
+six
+stevedore
+virtualenv
+virtualenv-clone
+virtualenvwrapper
+powerline-status
