@@ -1,10 +1,13 @@
 # ~/.bashrc
-# xterm
-if [ -e /usr/share/terminfo/x/xterm-256color ]; then
-        export TERM='xterm-256color'
+if [[ -z "$TMUX" ]]
+then
+    export TERM='screen-256color'
+elif [ -e /usr/share/terminfo/x/xterm-256color ]; then
+    export TERM='xterm-256color'
 else
-        export TERM='xterm-color'
+    export TERM='xterm-color'
 fi
+
 # source my own .dir_colors file
 if [ -f $HOME/.dir_colors ]
 then
@@ -39,6 +42,8 @@ alias doch='su -c "$(history -p !-1)"'
 alias fuck_ds_store='find . -name .DS_Store -exec rm {} \; && find . -name ._.DS_Store -exec rm {} \;'
 alias fuck_pyc='find . -name "*.pyc" -exec rm {} \;'
 alias htmltidy='tidy -mi -xml -wrap 0'
+alias tmux='tmux -2'
+alias gst='git status'
 alias git_checkout_changed='git status | grep geändert | cut -d ":" -f2 | xargs git checkout'
 
 export EDITOR=vim
