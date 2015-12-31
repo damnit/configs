@@ -1,11 +1,13 @@
 # ~/.bashrc
-if [[ -z "$TMUX" ]]
+if [ -v TMUX ]
 then
     export TERM='screen-256color'
-elif [ -e /usr/share/terminfo/x/xterm-256color ]; then
-    export TERM='xterm-256color'
 else
-    export TERM='xterm-color'
+    if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+        export TERM='xterm-256color'
+    else
+        export TERM='xterm-color'
+    fi
 fi
 
 # source my own .dir_colors file

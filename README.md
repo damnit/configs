@@ -15,6 +15,11 @@ Install pyflakes/pylint to make syntastic work with python :)
 
 ## CHANGES ##
 
+### 2015-12-31
+* fixed Make targets
+* setting correct $TERM
+* added rust.vim
+
 ### 2015-06-18
 * hackfixed Makefile to also copy i3 config
 * removed some ugly plugins

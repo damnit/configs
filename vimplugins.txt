@@ -20,3 +20,4 @@ https://github.com/wogong/msmtp.vim.git
 https://github.com/Raimondi/delimitMate.git
 https://github.com/tomasr/molokai.git
 https://github.com/Chiel92/vim-autoformat.git
+https://github.com/rust-lang/rust.vim.git
