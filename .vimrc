@@ -88,6 +88,8 @@ nmap <C-Left> <Left>
 
 " Autoformat
 let g:formatters_javascript = ['jscs', 'jsbeautify']
+" rust.vim has it's own
+let g:rustfmt_autosave = 1
 
 " Unite
 nnoremap <silent> <F8> :Unite buffer file_rec <cr>

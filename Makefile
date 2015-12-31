@@ -35,7 +35,7 @@ pathogen:
 
 vimplugins: clean pathogen
 	@echo Setting up plugins in $(BUNDLE)
-	@$(foreach REPO, $(VIMPLUGS), cd $(BUNDLE); git clone $(REPO) $(shell echo $(REPO) | sed 's#.*/##' | sed 's/\(.*\).git/\1/');)
+	@$(foreach REPO, $(VIMPLUGS), cd $(BUNDLE); git clone --depth=1 $(REPO) $(shell echo $(REPO) | sed 's#.*/##' | sed 's/\(.*\).git/\1/');)
 	@echo Installing vimproc
 	@git --git-dir=$(BUNDLE)/ clone https://github.com/Shougo/vimproc.vim.git $(BUNDLE)/vimproc.vim;
 	@echo running compile target to build the binaries

@@ -19,6 +19,7 @@ Install pyflakes/pylint to make syntastic work with python :)
 * fixed Make targets
 * setting correct $TERM
 * added rust.vim
+* speedup of vimplugins target using depth=1
 
 ### 2015-06-18
 * hackfixed Makefile to also copy i3 config
