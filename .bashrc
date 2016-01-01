@@ -51,7 +51,7 @@ alias git_checkout_changed='git status | grep geändert | cut -d ":" -f2 | xargs
 export EDITOR=vim
 export PYTHONDONTWRITEBYTECODE=1
 
-PATH=$PATH:/opt/java/bin # java path
+PATH=$PATH:$HOME/.cargo/bin # rust path
 
 #Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
