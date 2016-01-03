@@ -134,9 +134,6 @@ let g:pylint_onwrite=0
 let g:pylint_cwindow=1
 let g:pylint_show_rate=1
 
-" python mode
-let g:pymode_rope = 0
-
 " daylight
 let g:daylight_morning_color_gvim = "molokai"
 let g:daylight_afternoon_color_gvim = "github"
@@ -175,7 +172,7 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
-" powerline symbols
+" airline symbols
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
@@ -186,6 +183,11 @@ let g:airline_symbols.linenr = ''
 
 " delimitMate
 let b:delimitMate_autoclose = 0
+
+" vim-template
+let g:username = 'user.name'
+let g:email = 'user.email'
+let g:templates_directory = '~/.vim/templates'
 
 " ===============
 " custom commands
@@ -231,12 +233,6 @@ if has("autocmd") && !exists("autocommands_loaded")
   autocmd BufNewFile,BufRead error.log setfiletype apachelogs
   autocmd BufNewFile,BufRead access.log setfiletype apachelogs
   autocmd BufNewFile,BufRead *.moin setfiletype tracwiki
-
-  "vim to load default skeletons on open
-  autocmd BufNewFile *.py 0r ~/.vim/skeletons/skeleton.py
-  autocmd BufNewFile *.md 0r ~/.vim/skeletons/skeleton.md
-  autocmd BufNewFile *.js 0r ~/.vim/skeletons/skeleton.js
-  autocmd BufNewFile *.html 0r ~/.vim/skeletons/skeleton.html
 
   " abbrevations
   autocmd FileType python abbr kpdb import pdb; pdb.set_trace()

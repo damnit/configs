@@ -1,7 +1,9 @@
 DOTVIM = $$HOME/.vim
+ME = $(shell git config --global --get user.name)
+MAIL = $(shell git config --global --get user.email)
 AUTOLOAD = $$HOME/.vim/autoload
 BUNDLE = $$HOME/.vim/bundle
-SKELETONS = $$HOME/.vim/skeletons
+TEMPLATES = $$HOME/.vim/templates
 BUNDLES = $(shell ls $(BUNDLE))
 DATE = `date +'%Y-%m-%d'`
 VIMPLUGS = $(shell cat vimplugins.txt)
@@ -12,6 +14,7 @@ DOTFILES = .vimrc .bashrc .dir_colors .tmux.conf .gitignore_global .jscsrc
 status:
 	@echo TODOS:
 	@echo - fix tmux visual line mode behaviour in docker
+	@echo - provide target that only checks out new plugin of vimplugs file
 
 clean:
 	@echo Cleaning vim plugins folder
@@ -19,15 +22,19 @@ clean:
 
 folders:
 	@echo creating dirs if not already done
-	mkdir -p $(DOTVIM)/{autoload,bundle,skeletons}
+	mkdir -p $(DOTVIM)/{autoload,bundle,templates}
 	mkdir -p $(HOME)/.local/share/fonts
 	mkdir -p $(HOME)/.i3
 
 dotfiles: folders
 	@echo copying dotfiles
 	@$(foreach DOTFILE, $(DOTFILES), cp $$PWD/$(DOTFILE) $$HOME;)
-	@cp $$PWD/.vim/skeletons/* $(SKELETONS)
+	@cp $$PWD/.vim/templates/* $(TEMPLATES)
 	@cp $$PWD/.i3/config $(HOME)/.i3/config
+	@echo replacing user.name with $(ME) in .vimrc
+	@sed -i 's/user.name/$(ME)/' $(HOME)/.vimrc
+	@echo replacing user.email with $(MAIL) in .vimrc
+	@sed -i 's/user.email/$(MAIL)/' $(HOME)/.vimrc
 
 pathogen:
 	@echo installing pathogen

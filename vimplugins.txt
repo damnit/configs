@@ -21,3 +21,4 @@ https://github.com/Raimondi/delimitMate.git
 https://github.com/tomasr/molokai.git
 https://github.com/Chiel92/vim-autoformat.git
 https://github.com/rust-lang/rust.vim.git
+https://github.com/aperezdc/vim-template.git
