@@ -215,5 +215,5 @@ EXEC 01;32
 # coding formats
 .js 42;37
 .json 00;37
-.py 01;33;44
+.py 01;31;44
 .html 36;40 
