@@ -15,6 +15,7 @@ status:
 	@echo TODOS:
 	@echo - fix tmux visual line mode behaviour in docker
 	@echo - provide target that only checks out new plugin of vimplugs file
+	@echo - also install completion scripts to source in bashrc
 
 clean:
 	@echo Cleaning vim plugins folder
@@ -68,6 +69,10 @@ compile:
 fonts: folders
 	@git clone https://gist.github.com/9038570.git $(HOME)/.local/share/fonts/envy
 	@fc-cache
+
+bashmarks:
+	@git clone https://github.com/huyng/bashmarks.git /tmp/bashmarks
+	@cd /tmp/bashmarks; make install; cd -; rm -rf /tmp/bashmarks
 
 dockerize:
 	@echo building the container

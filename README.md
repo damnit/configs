@@ -15,6 +15,11 @@ Install pyflakes/pylint to make syntastic work with python :)
 
 ## CHANGES ##
 
+### 2016-03-10
+* added bashmarks
+* changed tmux to use \<C-a\>
+* added Dockerfile.vim
+
 ### 2015-12-31
 * fixed Make targets
 * setting correct $TERM

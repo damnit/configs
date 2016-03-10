@@ -58,6 +58,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 source /usr/share/git/completion/git-completion.bash
 source /usr/share/git/completion/git-prompt.sh
+source ~/.local/bin/bashmarks.sh
 shopt -s checkwinsize
 
 set_prompt () {

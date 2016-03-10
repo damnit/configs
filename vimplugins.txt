@@ -22,3 +22,4 @@ https://github.com/tomasr/molokai.git
 https://github.com/Chiel92/vim-autoformat.git
 https://github.com/rust-lang/rust.vim.git
 https://github.com/aperezdc/vim-template.git
+https://github.com/ekalinin/Dockerfile.vim.git
