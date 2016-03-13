@@ -73,12 +73,6 @@ nmap <f5> :bp <cr>
 " next buffer
 nmap <f6> :bn <cr>
 
-" move in split windows with ctrl key
-nmap <C-Up> <Up>
-nmap <C-Down> <Down>
-nmap <C-Right> <Right>
-nmap <C-Left> <Left>
-
 " clear search buffer when hitting return
 :nnoremap <cr> :nohlsearch<cr>/<bs>
 
@@ -109,8 +103,7 @@ endfunction
 nmap <F7> :TagbarToggle<CR>
 
 " nerdtree plugin
-map <silent><c-tab> :NERDTreeToggle <cr>
-" nnoremap <silent> <c-f> :call FindInNERDTree() <cr>
+nnoremap <F1> :NERDTreeToggle<CR>
 let g:NERDTreeMapActivateNode="<cr>"
 let g:NERDTreeMapOpenSplit="<s-cr>"
 let g:NERDTreeIgnore=['\.pyc$', '\.pyo$', '\~$', '\.aux$', '\.toc$', '\.lof$', '\.idx$']
