@@ -4,7 +4,6 @@
 "| (_| | (_| | | | | | | | | | | |_
 " \__,_|\__,_|_| |_| |_|_| |_|_|\__|
 "
-" Use Vim settings, rather than Vi settings.
 " This must be first because it changes other options
 set clipboard=unnamedplus
 set nocompatible
@@ -35,25 +34,25 @@ set nolist		    	" please don't show white spaces characters and tabs
 " VIM SPECIFIC
 " ============
 syntax on
-set expandtab             " expands tabs to spaces
-set softtabstop=4         " 4 spaces for tabs
-set colorcolumn=80        " color column 80
-set visualbell            " and don't beep
 set autoread              " read changed files
-set incsearch             " jump to searchterm
-set numberwidth=1         " width for numbers
-set nowrap                " no line wrapping
-set showtabline=2         " always show tab bar
-set scrolloff=3           " keep more content
-set wildmenu              " tab completion for files/buffers act like bash
-set wildmode=longest,list " emacs-style tab completion when selecting
+set colorcolumn=80        " color column 80
+set expandtab             " expands tabs to spaces
 set hlsearch              " highlight a search term
 set ignorecase            " case sensitive search
-set smartcase             " only case sensitive if upper characters
+set incsearch             " jump to searchterm
 set mousehide             " hide mouse pointer while typing
 set nobackup              " shit wreck swap files
-set noswapfile            " shit wreck swap files
 set nofoldenable
+set noswapfile            " shit wreck swap files
+set nowrap                " no line wrapping
+set numberwidth=1         " width for numbers
+set scrolloff=3           " keep more content
+set showtabline=2         " always show tab bar
+set smartcase             " only case sensitive if upper characters
+set softtabstop=4         " 4 spaces for tabs
+set visualbell            " and don't beep
+set wildmenu              " tab completion for files/buffers act like bash
+set wildmode=longest,list " emacs-style tab completion when selecting
 
 " =================
 " Keyboard mappings
@@ -109,6 +108,15 @@ let g:NERDTreeMapOpenSplit="<s-cr>"
 let g:NERDTreeIgnore=['\.pyc$', '\.pyo$', '\~$', '\.aux$', '\.toc$', '\.lof$', '\.idx$']
 let g:NERDTreeChDirMode=2
 
+" syntastic
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_loc_list_height=3
+let g:syntastic_check_on_wq=0
+let g:syntastic_python_python_exec='/usr/bin/python3'
+let g:syntastic_html_tidy_exec='/usr/bin/tidy'
+let g:syntastic_html_tidy_ignore_errors=['<input> proprietary attribute "role"']
+
 " supertab plugin
 " https://github.com/ervandew/supertab
 let g:SuperTabDefaultCompletionType='context'
@@ -118,10 +126,6 @@ let g:SuperTabDefaultCompletionType="<c-x><c-p>"
 let python_highlight_all=1
 let python_slow_sync=1
 
-" syntastic html tidy
-let g:syntastic_html_tidy_exec='/usr/bin/tidy'
-let g:syntastic_html_tidy_ignore_errors=['<input> proprietary attribute "role"']
-
 " pylint plugin
 let g:pylint_onwrite=0
 let g:pylint_cwindow=1
@@ -129,14 +133,14 @@ let g:pylint_show_rate=1
 
 " daylight
 let g:daylight_morning_color_gvim = "molokai"
-let g:daylight_afternoon_color_gvim = "github"
+let g:daylight_afternoon_color_gvim = "molokai"
 let g:daylight_evening_color_gvim = "molokai"
 let g:daylight_late_color_gvim = "molokai"
 
 let g:daylight_morning_color_term = "molokai"
 let g:daylight_afternoon_color_term = "molokai"
-let g:daylight_evening_color_term = "256-grayvim"
-let g:daylight_late_color_term = "256-grayvim"
+let g:daylight_evening_color_term = "molokai"
+let g:daylight_late_color_term = "molokai"
 
 let g:daylight_morning_hour = 6
 let g:daylight_afternoon_hour = 12
