@@ -54,7 +54,8 @@ install: dotfiles vimplugins fonts
 
 update: dotfiles
 	@echo updating repos copying dotfiles
-	@$(foreach PLUGIN, $(BUNDLES), echo pulling $(PLUGIN)... && git --git-dir=$(BUNDLE)/$(PLUGIN)/.git pull;)
+	@$(foreach PLUGIN, $(BUNDLES), echo pulling $(PLUGIN)... && cd $(BUNDLE)/$(PLUGIN); git pull; cd -;)
+	#@$(foreach PLUGIN, $(BUNDLES), echo pulling $(PLUGIN)... && git --git-dir=$(BUNDLE)/$(PLUGIN)/.git pull;)
 	@echo running compile target to build the binaries
 	@$(MAKE) compile
 	@echo update successful
