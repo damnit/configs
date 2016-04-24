@@ -2,8 +2,8 @@
 # vim:fenc=utf-8 ft=python ts=4 sw=4 expandtab :
 #
 # File: %FFILE%
-# 
-# %YEAR% 
+#
+# %YEAR%
 #
 # Distributed under terms of the %LICENSE% license.
 
