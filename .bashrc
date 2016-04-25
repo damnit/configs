@@ -47,6 +47,11 @@ alias htmltidy='tidy -mi -xml -wrap 0'
 alias tmux='tmux -2'
 alias gst='git status --porcelain'
 alias git_checkout_changed='git status | grep geändert | cut -d ":" -f2 | xargs git checkout'
+grep_and_vim () {
+    vim $(grep -RIn "$1" | cut -d ":" -f 1 | sort -u | grep "$2")
+}
+
+alias grim=grep_and_vim
 
 export EDITOR=vim
 export PYTHONDONTWRITEBYTECODE=1
