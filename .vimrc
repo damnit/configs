@@ -53,6 +53,7 @@ set softtabstop=4         " 4 spaces for tabs
 set visualbell            " and don't beep
 set wildmenu              " tab completion for files/buffers act like bash
 set wildmode=longest,list " emacs-style tab completion when selecting
+colorscheme molokai
 
 " =================
 " Keyboard mappings
@@ -130,22 +131,6 @@ let python_slow_sync=1
 let g:pylint_onwrite=0
 let g:pylint_cwindow=1
 let g:pylint_show_rate=1
-
-" daylight
-let g:daylight_morning_color_gvim = "molokai"
-let g:daylight_afternoon_color_gvim = "molokai"
-let g:daylight_evening_color_gvim = "molokai"
-let g:daylight_late_color_gvim = "molokai"
-
-let g:daylight_morning_color_term = "molokai"
-let g:daylight_afternoon_color_term = "molokai"
-let g:daylight_evening_color_term = "molokai"
-let g:daylight_late_color_term = "molokai"
-
-let g:daylight_morning_hour = 6
-let g:daylight_afternoon_hour = 12
-let g:daylight_evening_hour = 17
-let g:daylight_late_hour = 22
 
 " airline conf requires aur/ttf-powerline-fonts-git
 set laststatus=2

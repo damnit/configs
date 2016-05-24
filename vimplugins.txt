@@ -11,15 +11,13 @@ https://github.com/groenewege/vim-less.git
 https://github.com/tpope/vim-markdown.git
 https://github.com/tpope/vim-surround.git
 https://github.com/endel/vim-github-colorscheme.git
+https://github.com/tomasr/molokai.git
 https://github.com/vim-scripts/256-grayvim.git
 https://github.com/vim-scripts/tracwiki.git
 https://github.com/AndrewRadev/linediff.vim
-https://github.com/dan-f/vim-daylight.git
 https://github.com/tpope/vim-fugitive.git
 https://github.com/wogong/msmtp.vim.git
 https://github.com/Raimondi/delimitMate.git
-https://github.com/tomasr/molokai.git
 https://github.com/Chiel92/vim-autoformat.git
-https://github.com/rust-lang/rust.vim.git
 https://github.com/aperezdc/vim-template.git
 https://github.com/ekalinin/Dockerfile.vim.git
