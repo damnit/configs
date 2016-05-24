@@ -82,12 +82,9 @@ nmap <f6> :bn <cr>
 
 " Autoformat
 let g:formatters_javascript = ['jscs', 'jsbeautify']
-let g:formatters_rust = ['rustfmt']
-" rust.vim also has its own
-let g:rustfmt_autosave = 1
 
 " Unite
-nnoremap <silent> <F8> :Unite buffer file_rec <cr>
+nnoremap <silent> <F8> :Unite buffer file_rec/async <cr>
 
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
