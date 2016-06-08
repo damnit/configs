@@ -90,3 +90,14 @@ set_prompt () {
 }
 
 export PROMPT_COMMAND='set_prompt'
+
+# thanks http://blog.no-panic.at/2015/04/21/set-tmux-pane-title-on-ssh-connections/
+ssh() {
+    if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
+        tmux rename-window "$(echo $* | cut -d . -f 1)"
+        command ssh "$@"
+        tmux set-window-option automatic-rename "on" 1>/dev/null
+    else
+        command ssh "$@"
+    fi
+}
