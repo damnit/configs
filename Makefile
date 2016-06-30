@@ -68,7 +68,8 @@ compile:
 	@cd $(BUNDLE)/vimproc.vim ; $(MAKE)
 
 fonts: folders
-	@git clone https://gist.github.com/9038570.git $(HOME)/.local/share/fonts/envy
+	@if test -d $(HOME)/.local/share/fonts/envy; then echo "envy installed"; else git clone https://gist.github.com/9038570.git $(HOME)/.local/share/fonts/envy; fi
+	@if test -d $(HOME)/.local/share/fonts/RobotoMono; then echo "RobotoMono installed"; else git clone https://gist.github.com/damnit/57b979311788b14762181242daea7052 $(HOME)/.local/share/fonts/RobotoMono; fi
 	@fc-cache
 
 bashmarks:
