@@ -15,7 +15,6 @@ status:
 	@echo TODOS:
 	@echo - fix tmux visual line mode behaviour in docker
 	@echo - also install completion scripts to source in bashrc
-	@echo - also remove plugins that are not in the vimplugins.txt anymore
 
 clean:
 	@echo Cleaning vim plugins folder
@@ -38,17 +37,24 @@ dotfiles: folders
 	@sed -i 's/user.email/$(MAIL)/' $(HOME)/.vimrc
 
 plugins:
-	@echo Setting up plugins in $(BUNDLE)
+	@echo Setting up / updating plugins in $(BUNDLE)
 	@$(foreach REPO, $(VIMPLUGS), \
 		if test -d $(BUNDLE)/$(shell echo $(REPO) | sed 's#.*/##' | sed 's/\(.*\).git/\1/'); \
 		then echo $(REPO); cd $(BUNDLE)/$(shell echo $(REPO) | sed 's#.*/##' | sed 's/\(.*\).git/\1/'); git pull; \
 		else cd $(BUNDLE); git clone --depth=1 $(REPO) $(shell echo $(REPO) | sed 's#.*/##' | sed 's/\(.*\).git/\1/');\
 		fi;)
 
+remove-plugins:
+	@echo checking for plugins to be removed...
+	@$(foreach DIR, $(shell ls -1 $(BUNDLE)), \
+		if [ $(shell grep $(DIR) vimplugins.txt &> /dev/null; echo $$?) -ne 0 ]; \
+		then echo "DELETING $(DIR) as it is not in vimplugins.txt anymore"; rm -rf $(BUNDLE)/$(DIR);\
+		fi;)
+
 install: dotfiles fonts pathogen vimproc plugins
 	@echo installation successful
 
-update: fonts vimproc plugins
+update: fonts remove-plugins vimproc plugins
 	@echo update successful
 
 vimbackup:
