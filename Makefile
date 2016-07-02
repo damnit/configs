@@ -1,11 +1,12 @@
 DOTVIM = $$HOME/.vim
+DOTI3 = $$HOME/.i3
+USER_FONTS = $$HOME/.local/share/fonts
 ME = $(shell git config --global --get user.name)
 MAIL = $(shell git config --global --get user.email)
 AUTOLOAD = $$HOME/.vim/autoload
 BUNDLE = $$HOME/.vim/bundle
 TEMPLATES = $$HOME/.vim/templates
 BUNDLES = $(shell ls $(BUNDLE))
-DATE = `date +'%Y-%m-%d'`
 VIMPLUGS = $(shell cat vimplugins.txt)
 DOTFILES = .vimrc .bashrc .dir_colors .tmux.conf .gitignore_global .jscsrc
 
@@ -16,15 +17,9 @@ status:
 	@echo - fix tmux visual line mode behaviour in docker
 	@echo - also install completion scripts to source in bashrc
 
-clean:
-	@echo Cleaning vim plugins folder
-	@rm -rf $(BUNDLE)/*
-
 folders:
 	@echo creating dirs if not already done
-	mkdir -p $(DOTVIM)/{autoload,bundle,templates}
-	mkdir -p $(HOME)/.local/share/fonts
-	mkdir -p $(HOME)/.i3
+	mkdir -p $(AUTOLOAD) $(BUNDLE) $(TEMPLATES) $(DOTI3) $(USER_FONTS)
 
 dotfiles: folders
 	@echo copying dotfiles
@@ -36,7 +31,7 @@ dotfiles: folders
 	@echo replacing user.email with $(MAIL) in .vimrc
 	@sed -i 's/user.email/$(MAIL)/' $(HOME)/.vimrc
 
-plugins:
+plugins: folders
 	@echo Setting up / updating plugins in $(BUNDLE)
 	@$(foreach REPO, $(VIMPLUGS), \
 		if test -d $(BUNDLE)/$(shell echo $(REPO) | sed 's#.*/##' | sed 's/\(.*\).git/\1/'); \
@@ -44,7 +39,7 @@ plugins:
 		else cd $(BUNDLE); git clone --depth=1 $(REPO) $(shell echo $(REPO) | sed 's#.*/##' | sed 's/\(.*\).git/\1/');\
 		fi;)
 
-remove-plugins:
+remove-plugins: folders
 	@echo checking for plugins to be removed...
 	@$(foreach DIR, $(shell ls -1 $(BUNDLE)), \
 		if [ $(shell grep $(DIR) vimplugins.txt &> /dev/null; echo $$?) -ne 0 ]; \
@@ -57,20 +52,16 @@ install: dotfiles fonts pathogen vimproc plugins
 update: fonts remove-plugins vimproc plugins
 	@echo update successful
 
-vimbackup:
-	@echo doing a backup job on your .vim stuff
-	tar czf /tmp/$(DATE).dotvim.tar.gz $$HOME/.vimrc $(DOTVIM)
-
 fonts: folders
 	@if test -d $(HOME)/.local/share/fonts/envy; then echo "envy installed"; else git clone https://gist.github.com/9038570.git $(HOME)/.local/share/fonts/envy; fi
 	@if test -d $(HOME)/.local/share/fonts/RobotoMono; then echo "RobotoMono installed"; else git clone https://gist.github.com/damnit/57b979311788b14762181242daea7052 $(HOME)/.local/share/fonts/RobotoMono; fi
 	@fc-cache
 
-pathogen:
+pathogen: folders
 	@echo installing pathogen
 	@wget https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim -O $(AUTOLOAD)/pathogen.vim
 
-vimproc:
+vimproc: folders
 	@echo Installing vimproc
 	@if test -d $(BUNDLE)/vimproc.vim; then cd $(BUNDLE)/vimproc.vim/ ; git pull; else git --git-dir=$(BUNDLE)/ clone https://github.com/Shougo/vimproc.vim.git $(BUNDLE)/vimproc.vim; fi;
 	@echo running compile target to build the binaries
