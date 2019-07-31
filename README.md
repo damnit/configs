@@ -15,6 +15,12 @@ Install pyflakes/pylint to make syntastic work with python :)
 
 ## CHANGES ##
 
+### 2019-07-31
+* updated **.tmux.conf** to tmux 2.9+
+* fixed some targets in **Makefile**
+* **.bashrc** gst does not need a porcelain anymore
+* **vimplugins.txt** added a typescript plugin
+
 ### 2016-03-10
 * added bashmarks
 * changed tmux to use \<C-a\>

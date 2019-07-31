@@ -35,7 +35,7 @@ plugins: folders
 	@echo Setting up / updating plugins in $(BUNDLE)
 	@$(foreach REPO, $(VIMPLUGS), \
 		if test -d $(BUNDLE)/$(shell echo $(REPO) | sed 's#.*/##' | sed 's/\(.*\).git/\1/'); \
-		then echo $(REPO); cd $(BUNDLE)/$(shell echo $(REPO) | sed 's#.*/##' | sed 's/\(.*\).git/\1/'); git pull; \
+		then echo $(REPO); cd $(BUNDLE)/$(shell echo $(REPO) | sed 's#.*/##' | sed 's/\(.*\).git/\1/'); git checkout * && git pull; \
 		else cd $(BUNDLE); git clone --depth=1 $(REPO) $(shell echo $(REPO) | sed 's#.*/##' | sed 's/\(.*\).git/\1/');\
 		fi;)
 
@@ -63,7 +63,7 @@ pathogen: folders
 
 vimproc: folders
 	@echo Installing vimproc
-	@if test -d $(BUNDLE)/vimproc.vim; then cd $(BUNDLE)/vimproc.vim/ ; git pull; else git --git-dir=$(BUNDLE)/ clone https://github.com/Shougo/vimproc.vim.git $(BUNDLE)/vimproc.vim; fi;
+	@if test -d $(BUNDLE)/vimproc.vim; then cd $(BUNDLE)/vimproc.vim/ ; git checkout * && git pull; else git --git-dir=$(BUNDLE)/ clone https://github.com/Shougo/vimproc.vim.git $(BUNDLE)/vimproc.vim; fi;
 	@echo running compile target to build the binaries
 	@cd $(BUNDLE)/vimproc.vim ; $(MAKE)
 
