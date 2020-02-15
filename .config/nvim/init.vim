@@ -55,6 +55,10 @@ set wildmenu              " tab completion for files/buffers act like bash
 set wildmode=longest,list " emacs-style tab completion when selecting
 colorscheme molokai
 
+set hidden
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
+
 " =================
 " Keyboard mappings
 " =================
@@ -132,6 +136,7 @@ let g:pylint_show_rate=1
 " airline conf requires aur/ttf-powerline-fonts-git
 set laststatus=2
 let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#bufferline#enabled = 1
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}

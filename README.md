@@ -19,6 +19,7 @@ Install pyflakes/pylint to make syntastic work with python :)
 ### 2020-02-15
 * moving config to neovim
 * taking git-completion and git-prompt directly
+* adding vim-bufferline
 * fonts are optional now
 * still missing
     * make install virtualenvwrapper.sh
