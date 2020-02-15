@@ -16,9 +16,13 @@ Install pyflakes/pylint to make syntastic work with python :)
 
 ## CHANGES ##
 
-### 2020-02-XX
+### 2020-02-15
 * taking git-completion and git-prompt directly
 * fonts are optional now
+* still missing
+    * make install virtualenvwrapper.sh
+    * make install xclip
+* fonts target is broken, have to find another way.
 
 
 ### 2019-07-31
