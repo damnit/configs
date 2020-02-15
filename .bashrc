@@ -50,20 +50,19 @@ alias git_checkout_changed='git status | grep geändert | cut -d ":" -f2 | xargs
 grep_and_vim () {
     vim $(grep -RIn "$1" | cut -d ":" -f 1 | sort -u | grep "$2")
 }
-
 alias grim=grep_and_vim
+alias vim=nvim
 
-export EDITOR=vim
+export EDITOR=nvim
 export PYTHONDONTWRITEBYTECODE=1
 
 PATH=$PATH:$HOME/.cargo/bin # rust path
 
 #Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
-source /usr/share/git/completion/git-completion.bash
-source /usr/share/git/completion/git-prompt.sh
-source ~/.local/bin/bashmarks.sh
+source /usr/bin/virtualenvwrapper.sh # TODO: automate for all distros
+source ~/.local/share/git-prompt.sh
+source ~/.local/share/git-completion.bash
 shopt -s checkwinsize
 
 set_prompt () {

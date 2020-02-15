@@ -20,3 +20,4 @@ https://github.com/Chiel92/vim-autoformat.git
 https://github.com/aperezdc/vim-template.git
 https://github.com/ekalinin/Dockerfile.vim.git
 https://github.com/leafgarland/typescript-vim.git ~/.vim/bundle/typescript-vim
+https://github.com/fatih/vim-go.git

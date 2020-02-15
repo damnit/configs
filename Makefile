@@ -1,35 +1,35 @@
-DOTVIM = $$HOME/.vim
 DOTI3 = $$HOME/.i3
+LOCAL_SHARE = $$HOME/.local/share
 USER_FONTS = $$HOME/.local/share/fonts
-ME = $(shell git config --global --get user.name)
-MAIL = $(shell git config --global --get user.email)
-AUTOLOAD = $$HOME/.vim/autoload
-BUNDLE = $$HOME/.vim/bundle
-TEMPLATES = $$HOME/.vim/templates
+DOT_NVIM = $$HOME/.config/nvim
+AUTOLOAD = $$HOME/.config/nvim/autoload
+BUNDLE = $$HOME/.config/nvim/bundle
 BUNDLES = $(shell ls $(BUNDLE))
 VIMPLUGS = $(shell cat vimplugins.txt)
-DOTFILES = .vimrc .bashrc .dir_colors .tmux.conf .gitignore_global .jscsrc
+DOTFILES = .bashrc .dir_colors .tmux.conf .gitignore_global .jscsrc
+ME = $(shell git config --global --get user.name)
+MAIL = $(shell git config --global --get user.email)
 
 .PHONY: status
 
 status:
 	@echo TODOS:
 	@echo - fix tmux visual line mode behaviour in docker
-	@echo - also install completion scripts to source in bashrc
 
 folders:
 	@echo creating dirs if not already done
-	mkdir -p $(AUTOLOAD) $(BUNDLE) $(TEMPLATES) $(DOTI3) $(USER_FONTS)
+	mkdir -p $(AUTOLOAD) $(BUNDLE) $(DOT_NVIM)
+	mkdir -p $(DOTI3) $(LOCAL_SHARE) $(USER_FONTS)
 
 dotfiles: folders
 	@echo copying dotfiles
 	@$(foreach DOTFILE, $(DOTFILES), cp $$PWD/$(DOTFILE) $$HOME;)
-	@cp $$PWD/.vim/templates/* $(TEMPLATES)
+	@cp -r $$PWD/.config/nvim/* $(DOT_NVIM)
 	@cp $$PWD/.i3/config $(HOME)/.i3/config
-	@echo replacing user.name with $(ME) in .vimrc
-	@sed -i 's/user.name/$(ME)/' $(HOME)/.vimrc
-	@echo replacing user.email with $(MAIL) in .vimrc
-	@sed -i 's/user.email/$(MAIL)/' $(HOME)/.vimrc
+	@echo replacing user.name with $(ME) in init.vim
+	@sed -i 's/user.name/$(ME)/' $(HOME)/.config/nvim/init.vim
+	@echo replacing user.email with $(MAIL) in init.vim
+	@sed -i 's/user.email/$(MAIL)/' $(HOME)/.config/nvim/init.vim
 
 plugins: folders
 	@echo Setting up / updating plugins in $(BUNDLE)
@@ -46,10 +46,10 @@ remove-plugins: folders
 		then echo "DELETING $(DIR) as it is not in vimplugins.txt anymore"; rm -rf $(BUNDLE)/$(DIR);\
 		fi;)
 
-install: dotfiles fonts pathogen vimproc plugins
+install: dotfiles pathogen plugins gitcompletion
 	@echo installation successful
 
-update: fonts remove-plugins vimproc plugins
+update: remove-plugins plugins gitcompletion
 	@echo update successful
 
 fonts: folders
@@ -61,15 +61,10 @@ pathogen: folders
 	@echo installing pathogen
 	@wget https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim -O $(AUTOLOAD)/pathogen.vim
 
-vimproc: folders
-	@echo Installing vimproc
-	@if test -d $(BUNDLE)/vimproc.vim; then cd $(BUNDLE)/vimproc.vim/ ; git checkout * && git pull; else git --git-dir=$(BUNDLE)/ clone https://github.com/Shougo/vimproc.vim.git $(BUNDLE)/vimproc.vim; fi;
-	@echo running compile target to build the binaries
-	@cd $(BUNDLE)/vimproc.vim ; $(MAKE)
-
-bashmarks:
-	@git clone https://github.com/huyng/bashmarks.git /tmp/bashmarks
-	@cd /tmp/bashmarks; make install; cd -; rm -rf /tmp/bashmarks
+gitcompletion:
+	@echo curling for git completion and bash stuff
+	@wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.local/share/git-prompt.sh
+	@wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.local/share/git-completion.bash
 
 dockerize:
 	@echo building the container
@@ -82,4 +77,3 @@ run:
 	xhost +
 	docker run --rm -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$$DISPLAY -v $(HOME):$(HOME) --name=workspace workspace /usr/bin/terminator
 	xhost -
-

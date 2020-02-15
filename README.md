@@ -5,8 +5,9 @@ Install pyflakes/pylint to make syntastic work with python :)
 ## CONTENTS ##
 - **.vimrc** and **.vim** folder with snapshot of plugins
 - **.bashrc** for a nice bash experience
-- **.Xdefaults** does some urxvt config stuff
 - **.dir_colors** showing some nice colors in bash
+- **.tmux.conf** beautiful tmux config using CTRL+A
+- **.Xdefaults** does some urxvt config stuff
 - Makefile
 - some other shim
 
@@ -14,6 +15,11 @@ Install pyflakes/pylint to make syntastic work with python :)
 `make install` does all the installation stuff
 
 ## CHANGES ##
+
+### 2020-02-XX
+* taking git-completion and git-prompt directly
+* fonts are optional now
+
 
 ### 2019-07-31
 * updated **.tmux.conf** to tmux 2.9+
