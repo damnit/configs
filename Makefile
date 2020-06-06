@@ -63,8 +63,13 @@ pathogen: folders
 
 gitcompletion:
 	@echo curling for git completion and bash stuff
-	@wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.local/share/git-prompt.sh
-	@wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.local/share/git-completion.bash
+	@wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O $(HOME)/local/share/git-prompt.sh
+	@wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O $(HOME)/local/share/git-completion.bash
+
+poetry:
+	@echo installing poetry
+	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+	$(HOME)/.poetry/bin/poetry completions bash > $(HOME)/.local/share/poetry-completion.bash
 
 dockerize:
 	@echo building the container

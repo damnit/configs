@@ -56,13 +56,14 @@ alias vim=nvim
 export EDITOR=nvim
 export PYTHONDONTWRITEBYTECODE=1
 
-PATH=$PATH:$HOME/.cargo/bin # rust path
+PATH=$PATH:$HOME/.poetry/bin
 
 #Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh # TODO: automate for all distros
 source ~/.local/share/git-prompt.sh
 source ~/.local/share/git-completion.bash
+source ~/.local/share/poetry-completion.bash
 shopt -s checkwinsize
 
 set_prompt () {
