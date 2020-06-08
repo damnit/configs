@@ -60,7 +60,6 @@ PATH=$PATH:$HOME/.poetry/bin
 
 #Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh # TODO: automate for all distros
 source ~/.local/share/git-prompt.sh
 source ~/.local/share/git-completion.bash
 source ~/.local/share/poetry-completion.bash
@@ -89,7 +88,7 @@ set_prompt () {
     PS1+='] '$RESET
 }
 
-export PROMPT_COMMAND='set_prompt'
+PROMPT_COMMAND='set_prompt'
 
 # thanks http://blog.no-panic.at/2015/04/21/set-tmux-pane-title-on-ssh-connections/
 ssh() {
