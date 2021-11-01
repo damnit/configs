@@ -54,6 +54,7 @@ alias grim=grep_and_vim
 alias vim=nvim
 
 export EDITOR=nvim
+export MANPAGER="vim -M +MANPAGER --not-a-term -"
 export PYTHONDONTWRITEBYTECODE=1
 
 PATH=$PATH:$HOME/.poetry/bin

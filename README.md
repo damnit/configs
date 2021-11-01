@@ -16,6 +16,11 @@ Install pyflakes/pylint to make syntastic work with python :)
 
 ## CHANGES ##
 
+### 2021-11-01
+* adding todo.txt + config for neovim
+* adding telescope.vim and addons
+* using vim as manpage reader
+
 ### 2020-02-15
 * moving config to neovim
 * taking git-completion and git-prompt directly

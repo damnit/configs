@@ -22,3 +22,7 @@ https://github.com/ekalinin/Dockerfile.vim.git
 https://github.com/leafgarland/typescript-vim.git ~/.vim/bundle/typescript-vim
 https://github.com/fatih/vim-go.git
 https://github.com/bling/vim-bufferline.git
+https://github.com/nvim-lua/popup.nvim.git
+https://github.com/nvim-lua/plenary.nvim.git
+https://github.com/nvim-telescope/telescope.nvim.git
+https://github.com/freitass/todo.txt-vim.git
