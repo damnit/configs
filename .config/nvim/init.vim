@@ -53,7 +53,7 @@ set softtabstop=4         " 4 spaces for tabs
 set visualbell            " and don't beep
 set wildmenu              " tab completion for files/buffers act like bash
 set wildmode=longest,list " emacs-style tab completion when selecting
-colorscheme molokai
+colorscheme kanagawa
 
 set hidden
 nnoremap <C-N> :bnext<CR>

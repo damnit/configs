@@ -26,3 +26,4 @@ https://github.com/nvim-lua/popup.nvim.git
 https://github.com/nvim-lua/plenary.nvim.git
 https://github.com/nvim-telescope/telescope.nvim.git
 https://github.com/freitass/todo.txt-vim.git
+https://github.com/rebelot/kanagawa.nvim.git

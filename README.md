@@ -16,6 +16,9 @@ Install pyflakes/pylint to make syntastic work with python :)
 
 ## CHANGES ##
 
+### 2022-01-03
+* changed colorscheme to kanagawa <3
+
 ### 2021-11-01
 * adding todo.txt + config for neovim
 * adding telescope.vim and addons
