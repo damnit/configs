@@ -1,4 +1,5 @@
 DOTI3 = $$HOME/.i3
+SWAY = $$HOME/.config/sway
 LOCAL_SHARE = $$HOME/.local/share
 USER_FONTS = $$HOME/.local/share/fonts
 DOT_NVIM = $$HOME/.config/nvim
@@ -19,13 +20,14 @@ status:
 folders:
 	@echo creating dirs if not already done
 	mkdir -p $(AUTOLOAD) $(BUNDLE) $(DOT_NVIM)
-	mkdir -p $(DOTI3) $(LOCAL_SHARE) $(USER_FONTS)
+	mkdir -p $(SWAY) $(DOTI3) $(LOCAL_SHARE) $(USER_FONTS)
 
 dotfiles: folders
 	@echo copying dotfiles
 	@$(foreach DOTFILE, $(DOTFILES), cp $$PWD/$(DOTFILE) $$HOME;)
 	@cp -r $$PWD/.config/nvim/* $(DOT_NVIM)
 	@cp $$PWD/.i3/config $(HOME)/.i3/config
+	@cp $$PWD/.config/sway/config $(HOME)/.config/sway/config
 	@echo replacing user.name with $(ME) in init.vim
 	@sed -i 's/user.name/$(ME)/' $(HOME)/.config/nvim/init.vim
 	@echo replacing user.email with $(MAIL) in init.vim

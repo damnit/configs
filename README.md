@@ -16,6 +16,9 @@ Install pyflakes/pylint to make syntastic work with python :)
 
 ## CHANGES ##
 
+### 2022-01-25
+* `sway` config
+
 ### 2022-01-03
 * changed colorscheme to kanagawa <3
 
