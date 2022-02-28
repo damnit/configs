@@ -101,3 +101,5 @@ ssh() {
         command ssh "$@"
     fi
 }
+
+eval "$(eval ssh-agent)"

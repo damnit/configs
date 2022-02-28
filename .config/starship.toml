@@ -2,7 +2,7 @@ add_newline = false
 
 [hostname]
 ssh_only = false
-format = "<[$hostname]($style)> "
+format = "[$hostname]($style) "
 trim_at = "-"
 style = "bold dimmed white"
 disabled = false
@@ -16,7 +16,9 @@ disabled = false
 
 [username]
 style_user = "bold dimmed blue"
-show_always = false
+style_root = "red bold"
+format = "[$user]($style)@"
+show_always = true
 
 [package]
 disabled = true

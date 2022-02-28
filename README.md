@@ -15,6 +15,9 @@ Install pyflakes/pylint to make syntastic work with python :)
 `make install` does all the installation stuff
 
 ## CHANGES ##
+### 2022-02-28
+* adding ssh-agent eval
+* update starship.toml
 
 ### 2022-01-25
 * initial `sway` config
