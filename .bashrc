@@ -102,4 +102,10 @@ ssh() {
     fi
 }
 
-eval "$(eval ssh-agent)"
+eval "$(starship init bash)"
+if [ ! -S ~/.auth_sock_ssh ]; then
+  eval $(ssh-agent)
+  ln -sf "$SSH_AUTH_SOCK" ~/.auth_sock_ssh
+fi
+export SSH_AUTH_SOCK=~/.auth_sock_ssh
+ssh-add -l > /dev/null || ssh-add
